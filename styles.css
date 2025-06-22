@@ -596,6 +596,10 @@ body::after {
 .card.rare::before { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
 .card.epic::before { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
 .card.legendary::before { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+.card.mythic::before { background: linear-gradient(90deg, #ffe066, #fff700); }
+.card.ultra::before { background: linear-gradient(90deg, #00fff7, #00bfff); }
+.card.divine::before { background: linear-gradient(90deg, #b993ff, #8ca6db, #e0c3fc); }
+.card.exotic::before { background: linear-gradient(90deg, #ff61a6, #fffb7d, #00ffd0, #ff61a6); }
 
 /* Специальные стили для кристальных и звездных карт */
 .card.crystal {
@@ -1249,6 +1253,10 @@ body::after {
 .battle-card.rare::before { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
 .battle-card.epic::before { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
 .battle-card.legendary::before { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+.battle-card.mythic::before { background: linear-gradient(90deg, #ffe066, #fff700); }
+.battle-card.ultra::before { background: linear-gradient(90deg, #00fff7, #00bfff); }
+.battle-card.divine::before { background: linear-gradient(90deg, #b993ff, #8ca6db, #e0c3fc); }
+.battle-card.exotic::before { background: linear-gradient(90deg, #ff61a6, #fffb7d, #00ffd0, #ff61a6); }
 
 /* Специальные стили для кристальных и звездных карт в бою */
 .battle-card.crystal {
@@ -1612,4 +1620,14 @@ body::after {
     opacity: 0.7;
     letter-spacing: 1px;
     user-select: none;
-} 
+}
+
+.card.mythic { box-shadow: 0 0 24px 4px #fff70044; }
+.card.ultra { box-shadow: 0 0 24px 4px #00fff744; }
+.card.divine { box-shadow: 0 0 32px 6px #b993ff44; }
+.card.exotic { box-shadow: 0 0 40px 8px #ff61a644; }
+
+.battle-card.mythic { box-shadow: 0 0 24px 4px #fff70044; }
+.battle-card.ultra { box-shadow: 0 0 24px 4px #00fff744; }
+.battle-card.divine { box-shadow: 0 0 32px 6px #b993ff44; }
+.battle-card.exotic { box-shadow: 0 0 40px 8px #ff61a644; } 
