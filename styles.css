@@ -1630,4 +1630,40 @@ body::after {
 
 #mass-sell-all {
     margin-right: 12px;
+}
+
+/* --- Современная лаконичная анимация для всех кнопок --- */
+@keyframes btnFlash {
+    0% { box-shadow: 0 0 0 0 var(--accent-primary); }
+    30% { box-shadow: 0 0 12px 4px var(--accent-primary); }
+    70% { box-shadow: 0 0 8px 2px var(--accent-primary); }
+    100% { box-shadow: 0 0 0 0 var(--accent-primary); }
+}
+
+.btn.flash {
+    animation: btnFlash 0.45s cubic-bezier(.4,2,.6,1) 1;
+}
+
+/* --- Анимация для монет --- */
+@keyframes coinsBounce {
+    0% { transform: scale(1); }
+    30% { transform: scale(1.25) rotate(-8deg); }
+    60% { transform: scale(0.95) rotate(8deg); }
+    100% { transform: scale(1); }
+}
+
+#coins.animated {
+    animation: coinsBounce 0.7s cubic-bezier(.4,2,.6,1) 1;
+}
+
+/* --- Анимация для карточки при продаже --- */
+@keyframes cardSell {
+    0% { opacity: 1; transform: scale(1) rotate(0deg); }
+    60% { opacity: 0.5; transform: scale(1.15) rotate(-10deg); }
+    100% { opacity: 0; transform: scale(0.7) rotate(20deg); }
+}
+
+.card.sold {
+    animation: cardSell 0.6s cubic-bezier(.4,2,.6,1) 1;
+    pointer-events: none;
 } 
