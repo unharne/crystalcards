@@ -1599,7 +1599,7 @@ body::after {
 }
 
 .mass-action-panel {
-    display: flex;
+    display: flex !important;
     align-items: center;
     gap: 18px;
     background: var(--bg-glass-strong);
@@ -1610,6 +1610,7 @@ body::after {
     font-weight: 500;
     margin-bottom: 18px;
     justify-content: flex-start;
+    z-index: 10;
 }
 
 #mass-selected-info {
