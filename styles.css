@@ -1783,4 +1783,25 @@ body::after {
     margin-top: 10px;
     font-size: 1.1rem;
     min-height: 24px;
+}
+
+.clicker-section {
+    text-align: center;
+    margin-top: 32px;
+}
+.clicker-btn {
+    font-size: 2rem;
+    padding: 32px 64px;
+}
+.clicker-info {
+    margin-top: 18px;
+    font-size: 1.3rem;
+}
+.clicker-tip {
+    margin-top: 10px;
+    color: var(--text-secondary);
+}
+.mass-action-panel {
+    display: none;
+    margin-bottom: 18px;
 } 
