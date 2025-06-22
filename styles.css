@@ -7,30 +7,30 @@
 }
 
 :root {
-    --bg-primary: #0a0a0a;
-    --bg-secondary: #1a1a1a;
-    --bg-card: rgba(42, 42, 42, 0.3);
-    --bg-glass: rgba(255, 255, 255, 0.08);
-    --bg-glass-strong: rgba(255, 255, 255, 0.12);
-    --text-primary: #ffffff;
-    --text-secondary: #b0b0b0;
-    --accent-primary: #00d4ff;
-    --accent-secondary: #0099cc;
-    --accent-crystal: #4fc3f7;
-    --accent-success: #00e676;
-    --accent-warning: #ffab00;
-    --accent-danger: #ff5252;
+    --bg-primary: #10141a;
+    --bg-secondary: #1a1d23;
+    --bg-card: rgba(30, 34, 40, 0.32);
+    --bg-glass: rgba(36, 44, 56, 0.13);
+    --bg-glass-strong: rgba(36, 44, 56, 0.19);
+    --text-primary: #f4f7fa;
+    --text-secondary: #a6b0be;
+    --accent-primary: #3fa6ff;
+    --accent-secondary: #1e3a5c;
+    --accent-crystal: #7fd7ff;
+    --accent-success: #3fe0b6;
+    --accent-warning: #ffd166;
+    --accent-danger: #ff5c5c;
     --border-radius: 20px;
-    --shadow-light: 0 4px 20px rgba(0, 212, 255, 0.1);
-    --shadow-medium: 0 8px 32px rgba(0, 212, 255, 0.15);
-    --shadow-heavy: 0 16px 64px rgba(0, 212, 255, 0.2);
-    --glass-border: 1px solid rgba(255, 255, 255, 0.15);
-    --crystal-glow: 0 0 20px rgba(0, 212, 255, 0.3);
+    --shadow-light: 0 4px 20px rgba(63, 166, 255, 0.08);
+    --shadow-medium: 0 8px 32px rgba(63, 166, 255, 0.13);
+    --shadow-heavy: 0 16px 64px rgba(63, 166, 255, 0.18);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.09);
+    --crystal-glow: 0 0 20px rgba(63, 166, 255, 0.18);
 }
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #0a0a0a 100%);
+    background: linear-gradient(135deg, #10141a 0%, #1a1d23 40%, #23304a 100%);
     min-height: 100vh;
     color: var(--text-primary);
     overflow-x: hidden;
@@ -531,23 +531,26 @@ body::after {
 }
 
 .btn-sell-all {
-    background: linear-gradient(135deg, var(--accent-danger), var(--accent-warning), var(--accent-success));
-    color: #fff;
-    border: none;
-    border-radius: 12px;
-    padding: 8px 18px;
-    font-size: 1rem;
-    font-weight: 600;
+    background: var(--bg-glass-strong);
+    backdrop-filter: blur(18px);
+    color: var(--text-primary);
+    border: var(--glass-border);
+    border-radius: 16px;
+    padding: 16px 0;
+    font-size: 1.3rem;
+    font-weight: 700;
     margin-top: 6px;
     margin-bottom: 5px;
     margin-left: 8px;
     cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0, 230, 118, 0.15);
-    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 2px 16px rgba(63, 166, 255, 0.10);
+    transition: background 0.3s, box-shadow 0.2s, transform 0.2s;
 }
 
 .btn-sell-all:hover {
-    background: linear-gradient(135deg, var(--accent-success), var(--accent-warning), var(--accent-danger));
+    background: var(--bg-glass);
+    box-shadow: 0 4px 32px rgba(127, 215, 255, 0.18);
+    border-color: var(--accent-primary);
     transform: translateY(-2px) scale(1.04);
 }
 
