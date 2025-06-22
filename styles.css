@@ -1646,12 +1646,17 @@ body::after {
 
 /* --- Анимация для карточки при продаже --- */
 @keyframes cardSell {
-    0% { opacity: 1; transform: scale(1) rotate(0deg); }
-    60% { opacity: 0.5; transform: scale(1.15) rotate(-10deg); }
-    100% { opacity: 0; transform: scale(0.7) rotate(20deg); }
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.1);
+    }
 }
 
 .card.sold {
-    animation: cardSell 0.6s cubic-bezier(.4,2,.6,1) 1;
+    animation: cardSell 0.7s cubic-bezier(.4,2,.6,1) 1;
     pointer-events: none;
 } 
