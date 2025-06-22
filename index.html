@@ -92,12 +92,18 @@
                     </select>
                 </div>
                 <div id="mass-action-panel" class="mass-action-panel" style="display:none; margin-bottom:18px;">
+                    <div class="mass-action-group">
+                        <button id="mass-sell-all" class="btn btn-sell-all mass-action-btn" title="Продать все">🗑️</button>
+                        <button id="sell-selected-btn" class="btn btn-sell-all mass-action-btn" disabled title="Продать выбранные">💸</button>
+                    </div>
+                    <div class="mass-action-group">
+                        <button id="mass-select-all" class="btn btn-primary mass-action-btn" title="Выбрать все">✅</button>
+                        <button id="mass-deselect-all" class="btn mass-action-btn" title="Снять выделение">❌</button>
+                    </div>
+                    <div class="mass-action-group">
+                        <button id="upgrade-selected-btn" class="btn btn-upgrade mass-action-btn" disabled title="Прокачать выделенные">⬆️</button>
+                    </div>
                     <span id="mass-selected-info">Выбрано: 0 карт, 0 монет</span>
-                    <button id="mass-sell-all" class="btn btn-sell-all">Продать все</button>
-                    <button id="mass-select-all" class="btn btn-primary">Выбрать все</button>
-                    <button id="mass-deselect-all" class="btn">Снять выделение</button>
-                    <button id="sell-selected-btn" class="btn btn-sell-all" disabled>Продать выбранные</button>
-                    <button id="upgrade-selected-btn" class="btn btn-upgrade" disabled>Прокачать выделенные</button>
                 </div>
                 <div id="collection-grid" class="cards-grid"></div>
             </section>
