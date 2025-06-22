@@ -37,7 +37,6 @@
             <button class="nav-btn active" data-section="home">🏠 Главная</button>
             <button class="nav-btn" data-section="collection">📚 Коллекция</button>
             <button class="nav-btn" data-section="unpack">📦 Анпакинг</button>
-            <button class="nav-btn" data-section="battle">⚔️ Сражения</button>
             <button class="nav-btn" data-section="shop">🛒 Магазин</button>
         </nav>
 
@@ -101,6 +100,13 @@
                         <option value="support">Поддержка</option>
                     </select>
                 </div>
+                <div id="mass-action-panel" class="mass-action-panel" style="display:none; margin-bottom:18px;">
+                    <span id="mass-selected-info">Выбрано: 0 карт, 0 монет</span>
+                    <button id="mass-sell-all" class="btn btn-sell-all">Продать все</button>
+                    <button id="mass-select-all" class="btn btn-primary">Выбрать все</button>
+                    <button id="mass-deselect-all" class="btn">Снять выделение</button>
+                    <button id="sell-selected-btn" class="btn btn-sell-all" disabled>Продать выбранные</button>
+                </div>
                 <div id="collection-grid" class="cards-grid"></div>
             </section>
 
@@ -150,56 +156,6 @@
                     <h3>Полученные карточки:</h3>
                     <div id="revealed-cards" class="revealed-cards"></div>
                     <button id="close-reveal" class="btn btn-primary">Закрыть</button>
-                </div>
-            </section>
-
-            <!-- Battle Section -->
-            <section id="battle" class="section">
-                <div class="section-header">
-                    <h2>⚔️ Сражения</h2>
-                    <p>Сражайтесь с другими игроками!</p>
-                </div>
-
-                <div class="battle-modes">
-                    <div class="battle-mode">
-                        <h3>🎯 Быстрый бой</h3>
-                        <p>Случайный противник</p>
-                        <button class="btn btn-primary start-battle" data-mode="quick">Начать бой</button>
-                    </div>
-                    
-                    <div class="battle-mode">
-                        <h3>🏆 Рейтинг</h3>
-                        <p>Соревновательный режим</p>
-                        <button class="btn btn-primary start-battle" data-mode="ranked">Начать бой</button>
-                    </div>
-                </div>
-
-                <div id="battle-area" class="battle-area hidden">
-                    <div class="battle-field">
-                        <div class="player-side">
-                            <div class="player-info">
-                                <h3>Вы</h3>
-                                <div class="health-bar">
-                                    <div class="health-fill" id="player-health"></div>
-                                </div>
-                            </div>
-                            <div class="player-cards" id="player-cards"></div>
-                        </div>
-                        
-                        <div class="battle-center">
-                            <div class="battle-log" id="battle-log"></div>
-                        </div>
-                        
-                        <div class="enemy-side">
-                            <div class="enemy-info">
-                                <h3>Противник</h3>
-                                <div class="health-bar">
-                                    <div class="health-fill" id="enemy-health"></div>
-                                </div>
-                            </div>
-                            <div class="enemy-cards" id="enemy-cards"></div>
-                        </div>
-                    </div>
                 </div>
             </section>
 

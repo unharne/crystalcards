@@ -347,7 +347,7 @@ body::after {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, var(--accent-primary), var(--accent-crystal), var(--accent-secondary));
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-crystal));
     border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
 
@@ -510,6 +510,47 @@ body::after {
     font-size: 1.2rem;
 }
 
+.btn-sell {
+    background: linear-gradient(135deg, var(--accent-danger), var(--accent-warning));
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 8px 18px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(255, 82, 82, 0.15);
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-sell:hover {
+    background: linear-gradient(135deg, var(--accent-warning), var(--accent-danger));
+    transform: translateY(-2px) scale(1.04);
+}
+
+.btn-sell-all {
+    background: linear-gradient(135deg, var(--accent-danger), var(--accent-warning), var(--accent-success));
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 8px 18px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 6px;
+    margin-bottom: 5px;
+    margin-left: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 230, 118, 0.15);
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-sell-all:hover {
+    background: linear-gradient(135deg, var(--accent-success), var(--accent-warning), var(--accent-danger));
+    transform: translateY(-2px) scale(1.04);
+}
+
 /* Collection Section */
 .filters {
     display: flex;
@@ -560,6 +601,9 @@ body::after {
     position: relative;
     overflow: hidden;
     box-shadow: var(--shadow-light);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .card::before {
@@ -982,53 +1026,55 @@ body::after {
 
 /* Modal */
 .modal {
+    display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
     z-index: 1000;
+    left: 0; top: 0; width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.35);
+    justify-content: center;
+    align-items: center;
 }
 
 .modal-content {
     background: var(--bg-glass);
-    backdrop-filter: blur(25px);
-    border: var(--glass-border);
-    border-radius: var(--border-radius);
-    padding: 32px;
-    max-width: 500px;
-    width: 90%;
-    max-height: 80vh;
-    overflow-y: auto;
-    position: relative;
+    border-radius: 18px;
+    padding: 36px 32px 28px 32px;
     box-shadow: var(--shadow-heavy);
+    min-width: 320px;
+    max-width: 90vw;
+    text-align: center;
+    position: relative;
 }
 
 .close {
     position: absolute;
-    top: 16px;
-    right: 20px;
+    top: 12px;
+    right: 18px;
     font-size: 2rem;
+    color: var(--accent-danger);
     cursor: pointer;
-    color: var(--text-secondary);
-    transition: all 0.3s ease;
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
+    transition: color 0.2s;
 }
 
 .close:hover {
-    color: var(--accent-danger);
-    background: rgba(239, 68, 68, 0.1);
-    transform: scale(1.1);
+    color: var(--accent-warning);
+}
+
+.toast-success {
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, var(--accent-success), var(--accent-primary));
+    color: #fff;
+    padding: 18px 36px;
+    border-radius: 16px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    box-shadow: var(--shadow-medium);
+    z-index: 2000;
+    display: none;
+    animation: fadeInUp 0.5s;
 }
 
 .hidden {
@@ -1241,10 +1287,10 @@ body::after {
 }
 
 .battle-card.selected {
-    background: linear-gradient(135deg, var(--accent-primary), var(--accent-crystal));
-    border-color: var(--accent-primary);
-    box-shadow: 0 0 25px rgba(0, 212, 255, 0.5);
-    transform: scale(1.1);
+    box-shadow: 0 0 0 4px var(--accent-success), 0 8px 32px rgba(0, 230, 118, 0.15);
+    border-color: var(--accent-success);
+    background: linear-gradient(135deg, var(--bg-glass), rgba(0,230,118,0.08));
+    filter: brightness(1.08);
 }
 
 .battle-card.targetable {
@@ -1456,4 +1502,75 @@ body::after {
         min-width: 140px;
         margin: 4px;
     }
+}
+
+.card-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.btn-sell, .btn-sell-all {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.card-checkbox-container {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    z-index: 2;
+}
+
+.card-checkbox {
+    width: 22px;
+    height: 22px;
+    accent-color: var(--accent-success);
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,230,118,0.10);
+    cursor: pointer;
+    border: 2px solid var(--accent-success);
+    background: var(--bg-card);
+    transition: box-shadow 0.2s;
+}
+
+.card-checkbox:checked {
+    box-shadow: 0 0 0 3px var(--accent-success);
+}
+
+.card.selected {
+    box-shadow: 0 0 0 4px var(--accent-success), 0 8px 32px rgba(0, 230, 118, 0.15);
+    border-color: var(--accent-success);
+    background: linear-gradient(135deg, var(--bg-glass), rgba(0,230,118,0.08));
+    filter: brightness(1.08);
+}
+
+.mass-action-panel {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: var(--bg-glass-strong);
+    border-radius: 16px;
+    padding: 14px 24px;
+    box-shadow: var(--shadow-light);
+    font-size: 1.08rem;
+    font-weight: 500;
+    margin-bottom: 18px;
+    justify-content: flex-start;
+}
+
+#mass-selected-info {
+    flex: 1 1 0;
+    color: var(--accent-success);
+    font-weight: 600;
+}
+
+#sell-selected-btn[disabled] {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+#mass-sell-all {
+    margin-right: 12px;
 } 
