@@ -33,6 +33,7 @@
             <button class="nav-btn active" data-section="home">🏠 Главная</button>
             <button class="nav-btn" data-section="collection">📚 Коллекция</button>
             <button class="nav-btn" data-section="unpack">📦 Анпакинг</button>
+            <button class="nav-btn" data-section="nft">🖼️ NFT</button>
             <button id="reset-all-btn" class="nav-btn" data-section="reset">♻️ Сброс</button>
         </nav>
 
@@ -78,17 +79,14 @@
                 <div class="filters">
                     <select id="rarity-filter">
                         <option value="">Все редкости</option>
-                        <option value="common">Обычные</option>
-                        <option value="rare">Редкие</option>
-                        <option value="epic">Эпические</option>
-                        <option value="legendary">Легендарные</option>
-                    </select>
-                    <select id="type-filter">
-                        <option value="">Все типы</option>
-                        <option value="warrior">Воин</option>
-                        <option value="mage">Маг</option>
-                        <option value="archer">Лучник</option>
-                        <option value="support">Поддержка</option>
+                        <option value="common">⚪ Обычные</option>
+                        <option value="rare">🟦 Редкие</option>
+                        <option value="epic">🟪 Эпические</option>
+                        <option value="legendary">🟧 Легендарные</option>
+                        <option value="mythic">🟨 Мифические</option>
+                        <option value="ultra">💎 Ультра-редкие</option>
+                        <option value="divine">🌌 Божественные</option>
+                        <option value="exotic">🌠 Экзотические</option>
                     </select>
                 </div>
                 <div id="mass-action-panel" class="mass-action-panel" style="display:none; margin-bottom:18px;">
@@ -184,6 +182,15 @@
                     <div id="revealed-cards" class="revealed-cards"></div>
                     <button id="close-reveal" class="btn btn-primary">Закрыть</button>
                 </div>
+            </section>
+
+            <!-- NFT Section -->
+            <section id="nft" class="section">
+                <div class="section-header">
+                    <h2>🖼️ NFT-карты</h2>
+                    <p>Уникальные NFT-карты, которые ничего не дают, но выглядят круто и стоят от миллиарда монет!</p>
+                </div>
+                <div id="nft-grid" class="cards-grid"></div>
             </section>
 
             <!-- Shop Section -->

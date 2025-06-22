@@ -1723,4 +1723,25 @@ body::after {
 .card-buttons .btn-upgrade, .card-buttons .btn-sell {
     flex: 1 1 0;
     min-width: 0;
+}
+
+.nft-card.owned .buy-nft-btn {
+    background: #888;
+    color: #fff;
+    border: none;
+    cursor: not-allowed;
+    opacity: 0.7;
+    transition: background 0.2s;
+}
+
+.card-nft-price {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #ffd700;
+    margin: 24px 0 8px 0;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 2px #2226;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 } 
