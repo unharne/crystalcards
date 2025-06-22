@@ -1672,4 +1672,29 @@ body::after {
     display: flex;
     gap: 10px;
     margin-bottom: 8px;
+}
+
+.btn-upgrade {
+    background: linear-gradient(135deg, var(--accent-success), var(--accent-primary));
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 8px 18px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(63, 224, 182, 0.15);
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-upgrade:hover {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-success));
+    transform: translateY(-2px) scale(1.04);
+}
+
+.card-buttons .btn-upgrade, .card-buttons .btn-sell {
+    flex: 1 1 0;
+    min-width: 0;
 } 
