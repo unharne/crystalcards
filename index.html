@@ -34,6 +34,7 @@
             <button class="nav-btn" data-section="collection">📚 Коллекция</button>
             <button class="nav-btn" data-section="unpack">📦 Анпакинг</button>
             <button class="nav-btn" data-section="nft">🖼️ NFT</button>
+            <button class="nav-btn" data-section="promo">🎁 Промокоды</button>
             <button id="reset-all-btn" class="nav-btn" data-section="reset">♻️ Сброс</button>
         </nav>
 
@@ -112,7 +113,6 @@
                     <h2>📦 Анпакинг</h2>
                     <p>Открой для себя мир кристальных бизнес-карт! Собирай, улучшай и коллекционируй самые редкие и экзотические компании. Стань настоящей легендой среди коллекционеров!</p>
                 </div>
-                
                 <div class="packs-container">
                     <div class="pack-card" data-pack="basic">
                         <div class="pack-image">📦</div>
@@ -121,7 +121,6 @@
                         <p class="price">💰 100</p>
                         <button class="btn btn-primary buy-pack">Купить</button>
                     </div>
-                    
                     <div class="pack-card" data-pack="premium">
                         <div class="pack-image">🎁</div>
                         <h3>Премиум пак</h3>
@@ -129,7 +128,6 @@
                         <p class="price">💰 1000</p>
                         <button class="btn btn-primary buy-pack">Купить</button>
                     </div>
-                    
                     <div class="pack-card" data-pack="legendary">
                         <div class="pack-image">💎</div>
                         <h3>Легендарный пак</h3>
@@ -137,25 +135,31 @@
                         <p class="price">💰 2500</p>
                         <button class="btn btn-primary buy-pack">Купить</button>
                     </div>
-                    
+                    <div class="pack-card" data-pack="legendaryplus">
+                        <div class="pack-image">🏅</div>
+                        <h3>Чемпионский пак</h3>
+                        <p>15 карточек + гарантированная легендарная</p>
+                        <p class="price">💰 6000</p>
+                        <button class="btn btn-primary buy-pack">Купить</button>
+                    </div>
                     <div class="pack-card" data-pack="mythic">
                         <div class="pack-image">🌟</div>
                         <h3>Мифик пак</h3>
                         <p>20 карточек + гарантированная мифическая</p>
-                        <p class="price">💰 6000</p>
+                        <p class="price">💰 12000</p>
                         <button class="btn btn-primary buy-pack">Купить</button>
                     </div>
                     <div class="pack-card" data-pack="ultra">
                         <div class="pack-image">🔮</div>
                         <h3>Ультра пак</h3>
-                        <p>25 карточек + гарантированная ультра-редкая</p>
+                        <p>15 карточек + гарантированная ультра-редкая</p>
                         <p class="price">💰 15000</p>
                         <button class="btn btn-primary buy-pack">Купить</button>
                     </div>
-                    <div class="pack-card" data-pack="divine">
-                        <div class="pack-image">🌌</div>
-                        <h3>Божественный пак</h3>
-                        <p>30 карточек + гарантированная божественная</p>
+                    <div class="pack-card" data-pack="stellar">
+                        <div class="pack-image">✨</div>
+                        <h3>Звёздный пак</h3>
+                        <p>15 карточек + гарантированная божественная</p>
                         <p class="price">💰 35000</p>
                         <button class="btn btn-primary buy-pack">Купить</button>
                     </div>
@@ -169,21 +173,21 @@
                     <div class="pack-card" data-pack="crystal">
                         <div class="pack-image">🔷</div>
                         <h3>Кристальный пак</h3>
-                        <p>40 карточек + гарантированная ультра-редкая</p>
+                        <p>30 карточек + гарантированная ультра-редкая</p>
                         <p class="price">💰 250000</p>
                         <button class="btn btn-primary buy-pack">Купить</button>
                     </div>
-                    <div class="pack-card" data-pack="stellar">
-                        <div class="pack-image">✨</div>
-                        <h3>Звёздный пак</h3>
-                        <p>50 карточек + гарантированная божественная</p>
+                    <div class="pack-card" data-pack="divine">
+                        <div class="pack-image">👼</div>
+                        <h3>Божественный пак</h3>
+                        <p>30 карточек + гарантированная божественная</p>
                         <p class="price">💰 500000</p>
                         <button class="btn btn-primary buy-pack">Купить</button>
                     </div>
                     <div class="pack-card" data-pack="galaxy">
                         <div class="pack-image">🌌</div>
                         <h3>Галактический пак</h3>
-                        <p>60 карточек + гарантированная экзотическая</p>
+                        <p>30 карточек + гарантированная экзотическая</p>
                         <p class="price">💰 1000000</p>
                         <button class="btn btn-primary buy-pack">Купить</button>
                     </div>
@@ -212,6 +216,19 @@
                     <p>Уникальные NFT-карты, которые ничего не дают, но выглядят круто и стоят от миллиарда монет!</p>
                 </div>
                 <div id="nft-grid" class="cards-grid"></div>
+            </section>
+
+            <!-- Promo Section -->
+            <section id="promo" class="section">
+                <div class="section-header">
+                    <h2>🎁 Секретные промокоды</h2>
+                    <p>Вводите промокоды, чтобы получить уникальные награды!</p>
+                </div>
+                <div class="promo-form">
+                    <input type="text" id="promo-input" placeholder="Введите промокод..." maxlength="32" class="promo-input">
+                    <button id="promo-apply-btn" class="btn btn-primary">Активировать</button>
+                </div>
+                <div id="promo-message" class="promo-message"></div>
             </section>
 
             <!-- Shop Section -->
