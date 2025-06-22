@@ -1875,4 +1875,46 @@ body::after {
     flex-direction: row !important;
     gap: 10px !important;
     align-items: stretch;
+}
+
+body.lite-mode::before,
+body.lite-mode::after {
+    display: none !important;
+    animation: none !important;
+}
+body.lite-mode,
+body.lite-mode .header,
+body.lite-mode .main-content,
+body.lite-mode .card,
+body.lite-mode .pack-card,
+body.lite-mode .battle-card,
+body.lite-mode .modal-content {
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+}
+body.lite-mode .card,
+body.lite-mode .pack-card,
+body.lite-mode .battle-card {
+    filter: none !important;
+}
+body.lite-mode .card.crystal,
+body.lite-mode .card.stellar,
+body.lite-mode .battle-card.crystal,
+body.lite-mode .battle-card.stellar {
+    box-shadow: none !important;
+    background: var(--bg-glass) !important;
+}
+body.lite-mode .exclusive-3d-card,
+body.lite-mode .card-inner,
+body.lite-mode .card-front,
+body.lite-mode .card-back {
+    animation: none !important;
+    filter: none !important;
+    box-shadow: none !important;
+}
+body.lite-mode *,
+body.lite-mode *::before,
+body.lite-mode *::after {
+    animation: none !important;
+    transition: none !important;
 } 
