@@ -2607,6 +2607,17 @@ body.lite-mode *::after {
     background: var(--bg-secondary);
 }
 
+.trade-cards-selection-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 8px;
+}
+
+.trade-cards-selection-header .btn {
+    font-size: 12px;
+    padding: 4px 8px;
+}
+
 .trade-hint {
     color: var(--text-secondary);
     font-size: 14px;
@@ -2640,6 +2651,20 @@ body.lite-mode *::after {
     padding: 8px;
     background: var(--bg-tertiary);
     border-radius: 6px;
+}
+
+.trade-card-search input {
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: var(--input-bg);
+    color: var(--text-primary);
+    font-size: 14px;
+}
+
+.trade-card-search input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px var(--primary-color-alpha);
 }
 
 .trade-card-option {
@@ -2677,6 +2702,95 @@ body.lite-mode *::after {
 .trade-card-option .card-rarity {
     font-size: 10px;
     opacity: 0.8;
+}
+
+.trade-card-option .card-id {
+    font-size: 9px;
+    opacity: 0.6;
+    margin-top: 2px;
+}
+
+.trade-requested-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.trade-requested-tabs {
+    display: flex;
+    gap: 8px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
+}
+
+.trade-requested-tab {
+    padding: 8px 16px;
+    border: none;
+    background: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.trade-requested-tab:hover {
+    background: var(--hover-bg);
+    color: var(--text-primary);
+}
+
+.trade-requested-tab.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+.trade-requested-tab-content {
+    display: none;
+}
+
+.trade-requested-tab-content.active {
+    display: block;
+}
+
+.trade-card-tag {
+    background: var(--primary-color);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    display: inline-block;
+    margin: 2px;
+    white-space: nowrap;
+}
+
+.trade-card-tag:hover {
+    background: var(--primary-color-dark);
+    transform: translateY(-1px);
+    transition: all 0.2s ease;
+}
+
+.trade-card-tag.removable {
+    cursor: pointer;
+    position: relative;
+    padding-right: 24px;
+}
+
+.trade-card-remove {
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.trade-card-remove:hover {
+    color: white;
+    transform: translateY(-50%) scale(1.2);
 }
 
 /* Маленькие кнопки для торговли */
