@@ -29,8 +29,6 @@
             <button class="nav-btn" data-section="collection">📚 Коллекция</button>
             <button class="nav-btn" data-section="unpack">📦 Анпакинг</button>
             <button class="nav-btn" data-section="nft">🖼️ NFT</button>
-            <button class="nav-btn" data-section="promo">🎁 Промокоды</button>
-            <button id="reset-all-btn" class="nav-btn" data-section="reset">♻️ Сброс</button>
             <button id="lite-mode-toggle" class="nav-btn">⚡</button>
         </nav>
         <main class="main-content">
@@ -58,6 +56,21 @@
                         <span id="clicker-earned">Заработано монет: 0</span>
                     </div>
                     <p class="clicker-tip">Каждый клик приносит 5 монет!</p>
+                </div>
+                <div style="text-align:center; margin-top:18px;">
+                    <button id="tools-toggle-btn" class="btn btn-secondary" style="font-size:1.3em; padding:0.3em 1.2em;">⚙️ Инструменты</button>
+                </div>
+                <div id="main-tools-menu" class="main-tools-menu" style="display:none; margin:18px auto 0 auto; max-width:420px; background:rgba(30,34,40,0.97); border-radius:18px; box-shadow:0 4px 20px rgba(63,166,255,0.13); padding:18px 14px 14px 14px; text-align:center; position:relative; z-index:10;">
+                    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
+                        <h3 style="margin:0; color:#3fa6ff; font-size:1.08em; text-align:left;">Инструменты</h3>
+                        <button id="reset-all-btn" class="btn btn-danger" style="font-size:0.95em; padding:2px 10px; margin-left:10px;">Сброс</button>
+                    </div>
+                    <form class="promo-form" style="display:flex; gap:8px; align-items:center; justify-content:center; margin-bottom:10px;">
+                        <span style="font-size:1.2em;">🎁</span>
+                        <input type="text" id="promo-input" placeholder="Промокод..." maxlength="32" class="promo-input" style="flex:1; min-width:0;">
+                        <button id="promo-apply-btn" class="btn btn-primary" type="button" style="padding:6px 14px; font-size:1em;">OK</button>
+                    </form>
+                    <div id="promo-message" class="promo-message" style="min-height:1.2em; font-size:0.98em;"></div>
                 </div>
             </section>
             <section id="collection" class="section">
@@ -129,17 +142,6 @@
                     <p>Уникальные NFT-карты, которые ничего не дают, но выглядят круто и стоят от миллиарда монет!</p>
                 </div>
                 <div id="nft-grid" class="cards-grid"></div>
-            </section>
-            <section id="promo" class="section">
-                <div class="section-header">
-                    <h2>🎁 Секретные промокоды</h2>
-                    <p>Вводите промокоды, чтобы получить уникальные награды!</p>
-                </div>
-                <div class="promo-form">
-                    <input type="text" id="promo-input" placeholder="Введите промокод..." maxlength="32" class="promo-input">
-                    <button id="promo-apply-btn" class="btn btn-primary">Активировать</button>
-                </div>
-                <div id="promo-message" class="promo-message"></div>
             </section>
         </main>
         <footer class="footer-powered">powered by unharne</footer>
