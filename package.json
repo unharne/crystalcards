@@ -4,9 +4,7 @@
   "description": "Игра-коллекционер карт с системой торговли между игроками",
   "main": "index.html",
   "scripts": {
-    "dev": "vercel dev",
-    "build": "echo 'No build step required'",
-    "start": "vercel dev"
+    "build": "echo 'No build step required'"
   },
   "keywords": [
     "game",
@@ -17,9 +15,6 @@
   ],
   "author": "unharne",
   "license": "MIT",
-  "devDependencies": {
-    "vercel": "^latest"
-  },
   "engines": {
     "node": ">=14.0.0"
   }
