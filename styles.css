@@ -2062,24 +2062,44 @@ body.lite-mode *::after {
     letter-spacing: 0.5px;
     font-weight: 700;
 }
-.main-tools-menu .btn-danger {
-    font-size: 1em;
-    padding: 4px 14px 4px 10px;
-    border-radius: 10px;
-    margin-left: 10px;
-    background: linear-gradient(90deg, #ff5c5c, #ffb199 80%);
-    color: #fff;
-    border: none;
-    box-shadow: 0 2px 8px #ff5c5c22;
-    display: flex;
-    align-items: center;
-    gap: 4px;
+.main-tools-menu .btn-danger, #reset-all-btn {
+    font-size: 1.15em;
+    padding: 12px 0;
+    border-radius: 12px;
+    margin: 14px 0 10px 0;
+    background: linear-gradient(90deg, #ff5c5c, #ffb199 80%) !important;
+    color: #fff !important;
+    border: none !important;
+    box-shadow: 0 2px 12px #ff5c5c33;
+    display: block;
+    width: 100%;
+    max-width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 700;
+    letter-spacing: 0.5px;
     transition: background 0.18s, box-shadow 0.18s;
 }
-.main-tools-menu .btn-danger::before {
+.main-tools-menu .btn-danger::before, #reset-all-btn::before {
     content: '🗑️';
     font-size: 1.1em;
     margin-right: 2px;
+}
+.main-tools-menu .btn-danger:hover, #reset-all-btn:hover, .main-tools-menu .btn-danger:focus, #reset-all-btn:focus {
+    background: linear-gradient(90deg, #ff2d2d, #ffb199 80%) !important;
+    box-shadow: 0 4px 16px #ff5c5c44;
+    color: #fff !important;
+}
+@media (max-width: 430px) {
+    .main-tools-menu .btn-danger, #reset-all-btn {
+        font-size: 1.25em;
+        padding: 16px 0;
+        border-radius: 14px;
+        margin: 12px 0 10px 0;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
 }
 .main-tools-menu .btn-danger:hover, .main-tools-menu .btn-danger:focus {
     background: linear-gradient(90deg, #ff2d2d, #ffb199 80%);
