@@ -2176,32 +2176,12 @@ body.lite-mode *::after {
   .main-content {
     padding-top: 10px !important;
   }
-}
-@media (max-width: 600px) {
-  #main-tools-menu {
-    position: relative !important;
-  }
-  #reset-all-btn {
-    position: fixed !important;
-    top: 12px !important;
-    right: 12px !important;
-    font-size: 0.8em !important;
-    padding: 0 !important;
-    min-width: 36px !important;
-    min-height: 36px !important;
-    height: 36px !important;
-    width: 36px !important;
-    border-radius: 8px !important;
-    z-index: 1001 !important;
-    margin: 0 !important;
-    box-shadow: 0 2px 8px #ff5c5c22;
-    line-height: 1 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
-  #main-tools-menu > div[style*='display:flex'] {
-    flex-direction: row !important;
-    align-items: flex-start !important;
-  }
 } 
+
+.card, .card-name, .card-stat, .card-stat-label, .card-stat-value {
+    word-break: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    max-width: 100%;
+}
