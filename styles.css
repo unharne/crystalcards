@@ -2162,4 +2162,12 @@ body.lite-mode *::after {
     .main-tools-menu h3 {
         font-size: 1em;
     }
+}
+@media (max-width: 600px) {
+  .navigation {
+    margin-bottom: 32px !important;
+  }
+  .main-content {
+    padding-top: 10px !important;
+  }
 } 
