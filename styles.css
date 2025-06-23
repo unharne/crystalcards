@@ -2179,18 +2179,26 @@ body.lite-mode *::after {
 }
 @media (max-width: 600px) {
   #main-tools-menu {
-    position: relative;
+    position: relative !important;
   }
   #reset-all-btn {
-    position: absolute !important;
-    top: 8px !important;
-    right: 8px !important;
-    font-size: 0.85em !important;
-    padding: 2px 8px !important;
-    min-width: 0 !important;
-    min-height: 0 !important;
-    border-radius: 8px !important;
-    z-index: 20;
+    position: fixed !important;
+    top: 12px !important;
+    right: 12px !important;
+    font-size: 0.65em !important;
+    padding: 0 !important;
+    min-width: 28px !important;
+    min-height: 28px !important;
+    height: 28px !important;
+    width: 28px !important;
+    border-radius: 6px !important;
+    z-index: 1001 !important;
+    margin: 0 !important;
+    box-shadow: 0 2px 8px #ff5c5c22;
+    line-height: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
   #main-tools-menu > div[style*='display:flex'] {
     flex-direction: row !important;
