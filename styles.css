@@ -30,79 +30,23 @@
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: linear-gradient(135deg, #10141a 0%, #1a1d23 40%, #23304a 100%);
+    background: #181c24 !important;
     min-height: 100vh;
     color: var(--text-primary);
     overflow-x: hidden;
     position: relative;
 }
-
-/* Анимированный кристальный фон */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-        radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(79, 195, 247, 0.12) 0%, transparent 50%),
-        radial-gradient(circle at 40% 40%, rgba(0, 230, 118, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 60% 60%, rgba(255, 171, 0, 0.05) 0%, transparent 50%);
-    z-index: -1;
-    animation: crystalShift 25s ease-in-out infinite;
+/* Удаляем кристальный фон и анимации */
+body::before, body::after {
+    display: none !important;
 }
-
-@keyframes crystalShift {
-    0%, 100% { 
-        transform: translate(0, 0) scale(1) rotate(0deg); 
-        opacity: 0.8;
-    }
-    25% { 
-        transform: translate(-15px, -15px) scale(1.05) rotate(1deg); 
-        opacity: 1;
-    }
-    50% { 
-        transform: translate(15px, -10px) scale(1.02) rotate(-1deg); 
-        opacity: 0.9;
-    }
-    75% { 
-        transform: translate(-10px, 15px) scale(1.03) rotate(0.5deg); 
-        opacity: 1;
-    }
-}
-
-/* Дополнительные кристальные частицы */
-body::after {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: 
-        radial-gradient(2px 2px at 20px 30px, rgba(0, 212, 255, 0.3), transparent),
-        radial-gradient(2px 2px at 40px 70px, rgba(79, 195, 247, 0.3), transparent),
-        radial-gradient(1px 1px at 90px 40px, rgba(0, 230, 118, 0.3), transparent),
-        radial-gradient(1px 1px at 130px 80px, rgba(255, 171, 0, 0.3), transparent),
-        radial-gradient(2px 2px at 160px 30px, rgba(0, 212, 255, 0.3), transparent);
-    background-repeat: repeat;
-    background-size: 200px 100px;
-    animation: sparkle 20s linear infinite;
-    z-index: -1;
-}
-
-@keyframes sparkle {
-    0% { transform: translateY(0px); }
-    100% { transform: translateY(-100px); }
-}
-
 .game-container {
     max-width: 1400px;
     margin: 0 auto;
     padding: 20px;
     position: relative;
+    background: #181c24 !important;
+    box-shadow: none !important;
 }
 
 /* Header */
@@ -1791,8 +1735,70 @@ body::after {
     margin-top: 32px;
 }
 .clicker-btn {
-    font-size: 2rem;
-    padding: 32px 64px;
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    min-width: 90px;
+    min-height: 90px;
+    max-width: 110px;
+    max-height: 110px;
+    background: radial-gradient(circle at 60% 40%, #b993ff 60%, #e0c3fc 100%);
+    box-shadow: 0 0 0 0 #b993ff44, 0 2px 16px 0 #b993ff33, 0 1.5px 8px 0 #e0c3fc66;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 90px;
+    font-size: 2.7em;
+    color: #fff;
+    border: 2px solid #b993ff;
+    transition: box-shadow 0.18s, transform 0.12s, background 0.18s, border 0.18s;
+    outline: none;
+    margin: 0 auto 12px auto;
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+    user-select: none;
+    animation: clickerAppear 0.7s cubic-bezier(.4,2,.6,1);
+    overflow: visible;
+    padding: 0;
+}
+.clicker-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 88%;
+    height: 88%;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff6 0%, #b993ff33 60%, transparent 100%);
+    filter: blur(5px);
+    z-index: 1;
+    pointer-events: none;
+    animation: clickerPulse 2.2s infinite cubic-bezier(.4,2,.6,1);
+}
+.clicker-btn:hover, .clicker-btn:focus {
+    box-shadow: 0 0 32px 8px #b993ff99, 0 2px 12px #e0c3fc99;
+    background: radial-gradient(circle at 40% 60%, #e0c3fc 60%, #b993ff 100%);
+    border-width: 3px;
+    transform: scale(1.07);
+}
+.clicker-btn:active {
+    box-shadow: 0 0 12px 2px #b993ff77;
+    background: radial-gradient(circle at 50% 50%, #b993ff 70%, #e0c3fc 100%);
+    border-width: 2px;
+    transform: scale(0.96);
+}
+@keyframes clickerPulse {
+    0% { opacity: 0.7; box-shadow: 0 0 0 0 #00d4ff55; }
+    60% { opacity: 0.2; box-shadow: 0 0 32px 24px #00d4ff33; }
+    100% { opacity: 0.7; box-shadow: 0 0 0 0 #00d4ff55; }
+}
+@keyframes clickerAppear {
+    0% { opacity: 0; transform: scale(0.7); }
+    100% { opacity: 1; transform: scale(1); }
 }
 .clicker-info {
     margin-top: 18px;
@@ -1917,4 +1923,105 @@ body.lite-mode *::before,
 body.lite-mode *::after {
     animation: none !important;
     transition: none !important;
+}
+
+#rebirth-info {
+    font-weight: 700;
+    color: #00ffd0;
+    margin-left: 6px;
+    font-size: 1.1em;
+    letter-spacing: 0.5px;
+}
+#rebirth-btn {
+    background: linear-gradient(90deg, #00ffd0 0%, #3fa6ff 100%);
+    color: #10141a;
+    font-weight: 800;
+    border-radius: 14px;
+    font-size: 1.15em;
+    box-shadow: 0 0 12px #00ffd055;
+    margin-top: 10px;
+    transition: background 0.2s, color 0.2s;
+}
+#rebirth-btn:disabled {
+    background: #222c;
+    color: #aaa;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.rebirth-info-block {
+    font-weight: 700;
+    color: #00ffd0;
+    margin: 18px 0 8px 0;
+    text-align: center;
+    font-size: 1.15em;
+    letter-spacing: 0.5px;
+}
+
+/* Новый дизайн кликера */
+#clicker-main-btn.clicker-btn {
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    min-width: 90px;
+    min-height: 90px;
+    max-width: 110px;
+    max-height: 110px;
+    background: radial-gradient(circle at 60% 40%, #b993ff 60%, #e0c3fc 100%);
+    box-shadow: 0 0 0 0 #b993ff44, 0 2px 16px 0 #b993ff33, 0 1.5px 8px 0 #e0c3fc66;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 90px;
+    font-size: 2.7em;
+    color: #fff;
+    border: 2px solid #b993ff;
+    transition: box-shadow 0.18s, transform 0.12s, background 0.18s, border 0.18s;
+    outline: none;
+    margin: 0 auto 12px auto;
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+    user-select: none;
+    animation: clickerAppear 0.7s cubic-bezier(.4,2,.6,1);
+    overflow: visible;
+    padding: 0;
+}
+#clicker-main-btn.clicker-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 88%;
+    height: 88%;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff6 0%, #b993ff33 60%, transparent 100%);
+    filter: blur(5px);
+    z-index: 1;
+    pointer-events: none;
+    animation: clickerPulse 2.2s infinite cubic-bezier(.4,2,.6,1);
+}
+#clicker-main-btn.clicker-btn:hover, #clicker-main-btn.clicker-btn:focus {
+    box-shadow: 0 0 32px 8px #b993ff99, 0 2px 12px #e0c3fc99;
+    background: radial-gradient(circle at 40% 60%, #e0c3fc 60%, #b993ff 100%);
+    border-width: 3px;
+    transform: scale(1.07);
+}
+#clicker-main-btn.clicker-btn:active {
+    box-shadow: 0 0 12px 2px #b993ff77;
+    background: radial-gradient(circle at 50% 50%, #b993ff 70%, #e0c3fc 100%);
+    border-width: 2px;
+    transform: scale(0.96);
+}
+@keyframes clickerPulse {
+    0% { opacity: 0.7; box-shadow: 0 0 0 0 #00d4ff55; }
+    60% { opacity: 0.2; box-shadow: 0 0 32px 24px #00d4ff33; }
+    100% { opacity: 0.7; box-shadow: 0 0 0 0 #00d4ff55; }
+}
+@keyframes clickerAppear {
+    0% { opacity: 0; transform: scale(0.7); }
+    100% { opacity: 1; transform: scale(1); }
 } 
