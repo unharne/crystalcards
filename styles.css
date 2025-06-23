@@ -544,14 +544,16 @@ body::before, body::after {
   100% { opacity: 1; transform: scale(1) translateY(0); }
 }
 
-.card::before {
+.card::before { display: none !important; }
+.card.exotic::before {
+    display: block !important;
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, var(--accent-primary), var(--accent-crystal));
+    background: linear-gradient(90deg, #ff61a6, #fffb7d, #00ffd0, #ff61a6);
     border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
 
@@ -2299,3 +2301,13 @@ body.lite-mode *::after {
 .card.exotic .card-image { filter: drop-shadow(0 0 16px #ff61a6cc); }
 .card.crystal .card-image { filter: drop-shadow(0 0 10px #3fa6ffcc); }
 .card.stellar .card-image { filter: drop-shadow(0 0 10px #ffd166cc); }
+
+.card.rare { box-shadow: 0 0 4px 1px #3b82f633; }
+.card.epic { box-shadow: 0 0 5px 1.2px #8b5cf633; }
+.card.legendary { box-shadow: 0 0 6px 1.5px #f59e0b33; }
+.card.mythic { box-shadow: 0 0 7px 1.7px #fff70022; }
+.card.ultra { box-shadow: 0 0 7px 1.7px #00fff722; }
+.card.divine { box-shadow: 0 0 8px 2px #b993ff22; }
+.card.exotic { box-shadow: 0 0 9px 2.2px #ff61a622; }
+.card.crystal { box-shadow: 0 0 5px 1.2px #3fa6ff22; }
+.card.stellar { box-shadow: 0 0 5px 1.2px #ffd16622; }
