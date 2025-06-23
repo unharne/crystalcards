@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "functions": {
+    "api/trade.js": {
+      "maxDuration": 10
+    },
+    "api/players.js": {
+      "maxDuration": 10
+    }
+  },
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    }
+  ]
+} 

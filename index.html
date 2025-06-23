@@ -29,6 +29,7 @@
             <button class="nav-btn active" data-section="home" aria-current="page">🏠 Главная</button>
             <button class="nav-btn" data-section="collection">📚 Коллекция</button>
             <button class="nav-btn" data-section="unpack">📦 Анпакинг</button>
+            <button class="nav-btn" data-section="trade">🤝 Торговля</button>
             <button class="nav-btn" data-section="nft">🖼️ NFT</button>
             <button id="lite-mode-toggle" class="nav-btn" aria-pressed="false" aria-label="Переключить режим отображения">⚡</button>
         </nav>
@@ -135,6 +136,94 @@
                     <h3>Полученные карточки:</h3>
                     <div id="revealed-cards" class="revealed-cards"></div>
                     <button id="close-reveal" class="btn btn-primary">Закрыть</button>
+                </div>
+            </section>
+            <section id="trade" class="section" aria-labelledby="trade-title">
+                <div class="section-header">
+                    <h2 id="trade-title">🤝 Торговля картами</h2>
+                    <p>Обменивайтесь картами с другими игроками</p>
+                </div>
+                
+                <div class="trade-container">
+                    <div class="trade-sidebar">
+                        <div class="player-info">
+                            <h3>👤 Мой профиль</h3>
+                            <div class="player-stats">
+                                <div class="player-stat">
+                                    <span>Имя:</span>
+                                    <input type="text" id="player-username" placeholder="Введите имя игрока" maxlength="20">
+                                </div>
+                                <div class="player-stat">
+                                    <span>ID:</span>
+                                    <span id="player-id">Не создан</span>
+                                </div>
+                                <div class="player-stat">
+                                    <span>Карт в коллекции:</span>
+                                    <span id="player-cards-count">0</span>
+                                </div>
+                            </div>
+                            <button id="create-player-btn" class="btn btn-primary">Создать профиль</button>
+                        </div>
+                        
+                        <div class="trade-actions">
+                            <h3>📋 Действия</h3>
+                            <button id="create-trade-btn" class="btn btn-secondary">Создать сделку</button>
+                            <button id="refresh-trades-btn" class="btn btn-secondary">Обновить</button>
+                        </div>
+                    </div>
+                    
+                    <div class="trade-main">
+                        <div class="trade-tabs">
+                            <button class="trade-tab active" data-tab="active-trades">Активные сделки</button>
+                            <button class="trade-tab" data-tab="my-trades">Мои сделки</button>
+                            <button class="trade-tab" data-tab="create-trade">Создать сделку</button>
+                        </div>
+                        
+                        <div class="trade-content">
+                            <div id="active-trades" class="trade-tab-content active">
+                                <h3>📋 Активные сделки</h3>
+                                <div id="active-trades-list" class="trades-list"></div>
+                            </div>
+                            
+                            <div id="my-trades" class="trade-tab-content">
+                                <h3>📋 Мои сделки</h3>
+                                <div id="my-trades-list" class="trades-list"></div>
+                            </div>
+                            
+                            <div id="create-trade" class="trade-tab-content">
+                                <h3>🤝 Создать новую сделку</h3>
+                                <div class="trade-form">
+                                    <div class="trade-form-group">
+                                        <label for="trade-to-player">Игрок для обмена:</label>
+                                        <select id="trade-to-player" class="trade-select">
+                                            <option value="">Выберите игрока...</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="trade-form-group">
+                                        <label>Предлагаемые карты:</label>
+                                        <div id="offered-cards" class="trade-cards-selection">
+                                            <p class="trade-hint">Выберите карты из вашей коллекции</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="trade-form-group">
+                                        <label>Запрашиваемые карты:</label>
+                                        <div id="requested-cards" class="trade-cards-selection">
+                                            <p class="trade-hint">Укажите ID карт, которые хотите получить</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="trade-form-group">
+                                        <label for="trade-message">Сообщение:</label>
+                                        <textarea id="trade-message" placeholder="Дополнительное сообщение к сделке..." maxlength="200"></textarea>
+                                    </div>
+                                    
+                                    <button id="submit-trade-btn" class="btn btn-primary">Создать сделку</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
             <section id="nft" class="section" aria-labelledby="nft-title">
