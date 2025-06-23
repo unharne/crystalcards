@@ -2189,3 +2189,9 @@ body.lite-mode *::after {
 .nft-card::before {
     display: none !important;
 }
+
+.footer-powered a {
+    text-decoration: none;
+    color: inherit;
+    opacity: 1;
+}
