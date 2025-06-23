@@ -430,23 +430,26 @@ body::before, body::after {
 }
 
 .btn-sell {
-    background: linear-gradient(135deg, var(--accent-danger), var(--accent-warning));
+    background: linear-gradient(135deg, #ff5858 0%, #ffb347 100%);
     color: #fff;
     border: none;
-    border-radius: 12px;
+    border-radius: 10px;
     padding: 8px 18px;
     font-size: 1rem;
     font-weight: 600;
-    margin-top: 10px;
-    margin-bottom: 5px;
+    margin-top: 8px;
+    margin-bottom: 4px;
     cursor: pointer;
-    box-shadow: 0 2px 8px rgba(255, 82, 82, 0.15);
-    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 2px 8px 0 rgba(255, 88, 88, 0.10);
+    transition: background 0.22s, transform 0.14s, box-shadow 0.18s;
+    position: relative;
+    z-index: 1;
 }
-
-.btn-sell:hover {
-    background: linear-gradient(135deg, var(--accent-warning), var(--accent-danger));
-    transform: translateY(-2px) scale(1.04);
+.btn-sell:hover, .btn-sell:focus {
+    background: linear-gradient(135deg, #ffb347 0%, #ff5858 100%);
+    box-shadow: 0 0 12px 2px #ff585888;
+    transform: scale(1.04);
+    outline: none;
 }
 
 .btn-sell-all {
@@ -530,7 +533,7 @@ body::before, body::after {
     transition: all 0.4s ease;
     position: relative;
     overflow: hidden;
-    box-shadow: var(--shadow-light);
+    box-shadow: none;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -565,7 +568,7 @@ body::before, body::after {
 .card.crystal {
     background: linear-gradient(135deg, var(--bg-glass), rgba(0, 212, 255, 0.1));
     border-color: var(--accent-primary);
-    box-shadow: var(--crystal-glow);
+    box-shadow: 0 0 7px 1.5px #3fa6ff44;
 }
 
 .card.crystal::before { 
@@ -576,7 +579,7 @@ body::before, body::after {
 .card.stellar {
     background: linear-gradient(135deg, var(--bg-glass), rgba(255, 171, 0, 0.1));
     border-color: var(--accent-warning);
-    box-shadow: 0 0 20px rgba(255, 171, 0, 0.3);
+    box-shadow: 0 0 7px 1.5px #ffd16644;
 }
 
 .card.stellar::before { 
@@ -615,21 +618,19 @@ body::before, body::after {
     100% { background-position: 0% 50%; }
 }
 
-.card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: var(--shadow-heavy);
-    border-color: var(--accent-primary);
-}
-
-/* Усиленные эффекты для кристальных карт при наведении */
-.card.crystal:hover {
-    transform: translateY(-12px) scale(1.05);
-    box-shadow: 0 0 40px rgba(0, 212, 255, 0.4);
-}
-
+.card:hover,
+.card.rare:hover,
+.card.epic:hover,
+.card.legendary:hover,
+.card.mythic:hover,
+.card.ultra:hover,
+.card.divine:hover,
+.card.exotic:hover,
+.card.crystal:hover,
 .card.stellar:hover {
-    transform: translateY(-12px) scale(1.05);
-    box-shadow: 0 0 40px rgba(255, 171, 0, 0.4);
+    box-shadow: 0 0 0 3px #fff6, 0 0 20px 4px var(--accent-primary, #3fa6ff33);
+    border-color: var(--accent-primary);
+    transform: translateY(-8px) scale(1.02);
 }
 
 .card-image {
@@ -1603,15 +1604,15 @@ body::before, body::after {
     user-select: none;
 }
 
-.card.mythic { box-shadow: 0 0 24px 4px #fff70044; }
-.card.ultra { box-shadow: 0 0 24px 4px #00fff744; }
-.card.divine { box-shadow: 0 0 32px 6px #b993ff44; }
-.card.exotic { box-shadow: 0 0 40px 8px #ff61a644; }
+.card.mythic { box-shadow: 0 0 9px 2.5px #fff70055; }
+.card.ultra { box-shadow: 0 0 9px 2.5px #00fff755; }
+.card.divine { box-shadow: 0 0 10px 3px #b993ff44; }
+.card.exotic { box-shadow: 0 0 11px 3.5px #ff61a644; }
 
-.battle-card.mythic { box-shadow: 0 0 24px 4px #fff70044; }
-.battle-card.ultra { box-shadow: 0 0 24px 4px #00fff744; }
-.battle-card.divine { box-shadow: 0 0 32px 6px #b993ff44; }
-.battle-card.exotic { box-shadow: 0 0 40px 8px #ff61a644; }
+.battle-card.mythic { box-shadow: 0 0 9px 2.5px #fff70055; }
+.battle-card.ultra { box-shadow: 0 0 9px 2.5px #00fff755; }
+.battle-card.divine { box-shadow: 0 0 10px 3px #b993ff44; }
+.battle-card.exotic { box-shadow: 0 0 11px 3.5px #ff61a644; }
 
 .mass-action-btn {
     width: 24px;
@@ -1646,23 +1647,49 @@ body::before, body::after {
 }
 
 .btn-upgrade {
-    background: linear-gradient(135deg, var(--accent-success), var(--accent-primary));
+    background: linear-gradient(135deg, #7f9cf5 0%, #a78bfa 100%);
     color: #fff;
     border: none;
-    border-radius: 12px;
+    border-radius: 10px;
     padding: 8px 18px;
     font-size: 1rem;
     font-weight: 600;
-    margin-top: 10px;
-    margin-bottom: 5px;
+    margin-top: 8px;
+    margin-bottom: 4px;
     cursor: pointer;
-    box-shadow: 0 2px 8px rgba(63, 224, 182, 0.15);
-    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 2px 8px 0 rgba(127, 156, 245, 0.10);
+    transition: background 0.22s, transform 0.14s, box-shadow 0.18s;
+    position: relative;
+    z-index: 1;
+}
+.btn-upgrade:hover, .btn-upgrade:focus {
+    background: linear-gradient(135deg, #a78bfa 0%, #7f9cf5 100%);
+    box-shadow: 0 0 12px 2px #a78bfa88;
+    transform: scale(1.04);
+    outline: none;
 }
 
-.btn-upgrade:hover {
-    background: linear-gradient(135deg, var(--accent-primary), var(--accent-success));
-    transform: translateY(-2px) scale(1.04);
+.btn-sell {
+    background: linear-gradient(135deg, #ff5858 0%, #ffb347 100%);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 18px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 8px;
+    margin-bottom: 4px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px 0 rgba(255, 88, 88, 0.10);
+    transition: background 0.22s, transform 0.14s, box-shadow 0.18s;
+    position: relative;
+    z-index: 1;
+}
+.btn-sell:hover, .btn-sell:focus {
+    background: linear-gradient(135deg, #ffb347 0%, #ff5858 100%);
+    box-shadow: 0 0 12px 2px #ff585888;
+    transform: scale(1.04);
+    outline: none;
 }
 
 .card-buttons .btn-upgrade, .card-buttons .btn-sell {
