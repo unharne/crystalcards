@@ -2162,6 +2162,12 @@ body.lite-mode *::after {
     .main-tools-menu h3 {
         font-size: 1em;
     }
+    .main-tools-menu .btn-danger {
+        font-size: 0.85em;
+        padding: 2px 7px 2px 6px;
+        min-width: unset;
+        min-height: unset;
+    }
 }
 @media (max-width: 600px) {
   .navigation {
