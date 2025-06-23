@@ -191,16 +191,6 @@ body::before, body::after {
     border-color: transparent;
 }
 
-.reset-btn {
-    padding: 6px 14px !important;
-    font-size: 0.95rem !important;
-    border-radius: 10px !important;
-    margin-top: 2px;
-    margin-bottom: 2px;
-    height: auto;
-    line-height: 1.1;
-}
-
 /* Main Content */
 .main-content {
     background: var(--bg-glass);
@@ -215,11 +205,14 @@ body::before, body::after {
 
 .section {
     display: none;
-    animation: fadeInUp 0.5s ease;
+    animation: fadeInUp 0.5s cubic-bezier(.4,2,.6,1);
+    opacity: 0;
 }
 
 .section.active {
     display: block;
+    animation: fadeInUp 0.5s cubic-bezier(.4,2,.6,1);
+    opacity: 1;
 }
 
 @keyframes fadeInUp {
@@ -399,7 +392,7 @@ body::before, body::after {
     font-family: inherit;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.4s ease;
+    transition: all 0.18s cubic-bezier(.4,2,.6,1), box-shadow 0.22s;
     position: relative;
     overflow: hidden;
     box-shadow: var(--shadow-light);
@@ -541,6 +534,11 @@ body::before, body::after {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    animation: cardFadeIn 0.5s cubic-bezier(.4,2,.6,1);
+}
+@keyframes cardFadeIn {
+  0% { opacity: 0; transform: scale(0.85) translateY(30px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
 }
 
 .card::before {
@@ -696,47 +694,52 @@ body::before, body::after {
     backdrop-filter: blur(20px);
     border: var(--glass-border);
     border-radius: var(--border-radius);
-    padding: 32px;
+    padding: 32px 24px 28px 24px;
     text-align: center;
     transition: all 0.4s ease;
     position: relative;
     overflow: hidden;
     box-shadow: var(--shadow-light);
-}
-
-.pack-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: var(--shadow-heavy);
-    border-color: var(--accent-primary);
+    min-height: 370px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .pack-image {
-    font-size: 4rem;
-    margin-bottom: 20px;
-    /* filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.4)); */
-    /* animation: packGlow 2s ease-in-out infinite alternate; */
+    font-size: 4.2rem;
+    margin-bottom: 18px;
 }
 
 .pack-card h3 {
-    font-size: 1.6rem;
+    font-size: 1.35rem;
     font-weight: 700;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     color: var(--text-primary);
     text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
 }
 
 .pack-card p {
     color: var(--text-secondary);
-    margin-bottom: 8px;
-    font-size: 1rem;
+    margin-bottom: 6px;
+    font-size: 0.98rem;
+    min-height: 22px;
 }
 
 .price {
-    font-size: 1.3rem;
+    font-size: 1.15rem;
     font-weight: 700;
     color: var(--accent-warning);
-    margin-bottom: 20px;
+    margin-bottom: 18px;
     text-shadow: 0 0 10px rgba(255, 171, 0, 0.3);
+}
+
+.pack-card .btn {
+    margin-top: auto;
+    align-self: center;
+    min-width: 140px;
+    font-size: 1.08rem;
+    padding: 0.7em 0;
 }
 
 .unpacking-area {
@@ -897,6 +900,11 @@ body::before, body::after {
     background: rgba(0,0,0,0.35);
     justify-content: center;
     align-items: center;
+    animation: modalAppear 0.32s cubic-bezier(.4,2,.6,1);
+}
+@keyframes modalAppear {
+  0% { opacity: 0; transform: scale(0.85) translateY(40px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
 }
 
 .modal-content {
@@ -2013,19 +2021,15 @@ body.lite-mode *::after {
 /* --- Инструменты: выпадающее меню (улучшенный стиль) --- */
 .main-tools-menu {
     display: none;
-    margin: 22px auto 0 auto;
+    margin: 18px auto 0 auto;
     max-width: 420px;
-    background: rgba(30,34,40,0.92);
-    border-radius: 22px;
-    box-shadow: 0 8px 32px 0 rgba(63,166,255,0.18), 0 1.5px 8px 0 rgba(0,0,0,0.10);
-    padding: 26px 20px 18px 20px;
+    background: rgba(30,34,40,0.97);
+    border-radius: 18px;
+    box-shadow: 0 4px 20px rgba(63,166,255,0.13);
+    padding: 18px 14px 14px 14px;
     text-align: center;
     position: relative;
-    z-index: 20;
-    animation: fadeInTools 0.28s cubic-bezier(.4,2,.6,1);
-    backdrop-filter: blur(12px) saturate(1.2);
-    border: 1.5px solid rgba(255,255,255,0.08);
-    transition: box-shadow 0.22s, background 0.22s;
+    z-index: 10;
 }
 .main-tools-menu.open {
     animation: fadeInTools 0.28s cubic-bezier(.4,2,.6,1);
@@ -2194,4 +2198,47 @@ body.lite-mode *::after {
     text-decoration: none;
     color: inherit;
     opacity: 1;
+}
+
+.rebirth-info-custom {
+  margin: 18px 0 8px 0;
+  text-align: center;
+  font-size: 1.15em;
+  font-weight: 700;
+  color: #00ffd0;
+}
+.rebirth-btn {
+  margin-top: 8px;
+}
+.clicker-main-btn-custom {
+  font-size: 3.2em;
+  padding: 0.3em 0.5em;
+}
+.tools-toggle-container {
+  text-align: center;
+  margin-top: 18px;
+}
+.tools-toggle-btn-custom {
+  font-size: 1.3em;
+  padding: 0.3em 1.2em;
+}
+
+.exclusive-3d-card-front-icon {
+  font-size: 3.2em;
+  margin-bottom: 8px;
+}
+.exclusive-3d-card-front-title {
+  font-size: 1.2em;
+  font-weight: 900;
+  margin-bottom: 10px;
+  letter-spacing: 1.5px;
+}
+.exclusive-stats-income {
+  color: #00bfff;
+}
+.exclusive-stats-level {
+  color: #ffd700;
+}
+.exclusive-upgrade-cost-value {
+  color: #ffd700;
 }
