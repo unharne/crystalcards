@@ -704,17 +704,6 @@ body::before, body::after {
     box-shadow: var(--shadow-light);
 }
 
-.pack-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--accent-primary), var(--accent-crystal));
-    border-radius: var(--border-radius) var(--border-radius) 0 0;
-}
-
 .pack-card:hover {
     transform: translateY(-8px) scale(1.02);
     box-shadow: var(--shadow-heavy);
@@ -724,13 +713,8 @@ body::before, body::after {
 .pack-image {
     font-size: 4rem;
     margin-bottom: 20px;
-    filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.4));
-    animation: packGlow 2s ease-in-out infinite alternate;
-}
-
-@keyframes packGlow {
-    0% { filter: drop-shadow(0 0 15px rgba(0, 212, 255, 0.3)); }
-    100% { filter: drop-shadow(0 0 25px rgba(0, 212, 255, 0.6)); }
+    /* filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.4)); */
+    /* animation: packGlow 2s ease-in-out infinite alternate; */
 }
 
 .pack-card h3 {
@@ -2184,4 +2168,24 @@ body.lite-mode *::after {
     text-overflow: ellipsis;
     white-space: normal;
     max-width: 100%;
+}
+
+/* --- Glow for each pack type --- */
+.pack-card.basic .pack-image { filter: drop-shadow(0 0 32px #bfa06a) drop-shadow(0 0 8px #bfa06a); }
+.pack-card.premium .pack-image { filter: drop-shadow(0 0 32px #ffb700) drop-shadow(0 0 8px #ffb700); }
+.pack-card.legendary .pack-image { filter: drop-shadow(0 0 32px #00bfff) drop-shadow(0 0 8px #00bfff); }
+.pack-card.legendaryplus .pack-image { filter: drop-shadow(0 0 32px #ff7f50) drop-shadow(0 0 8px #ff7f50); }
+.pack-card.mythic .pack-image { filter: drop-shadow(0 0 32px #ffe066) drop-shadow(0 0 8px #ffe066); }
+.pack-card.ultra .pack-image { filter: drop-shadow(0 0 32px #a259ff) drop-shadow(0 0 8px #a259ff); }
+.pack-card.stellar .pack-image { filter: drop-shadow(0 0 32px #ffd700) drop-shadow(0 0 8px #ffd700); }
+.pack-card.exotic .pack-image { filter: drop-shadow(0 0 32px #ff61a6) drop-shadow(0 0 8px #ff61a6); }
+.pack-card.crystal .pack-image { filter: drop-shadow(0 0 32px #7fd7ff) drop-shadow(0 0 8px #7fd7ff); }
+.pack-card.divine .pack-image { filter: drop-shadow(0 0 32px #b993ff) drop-shadow(0 0 8px #b993ff); }
+.pack-card.galaxy .pack-image { filter: drop-shadow(0 0 32px #00ffd0) drop-shadow(0 0 8px #00ffd0); }
+.pack-card.exclusive .pack-image { filter: drop-shadow(0 0 32px #ffd700) drop-shadow(0 0 8px #ffd700); }
+.pack-card.duplicate .pack-image { filter: drop-shadow(0 0 32px #00ffd0) drop-shadow(0 0 8px #00ffd0); }
+
+/* Keep default for fallback */
+.nft-card::before {
+    display: none !important;
 }
