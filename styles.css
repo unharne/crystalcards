@@ -636,7 +636,7 @@ body::before, body::after {
 .card-image {
     font-size: 4rem;
     margin-bottom: 16px;
-    filter: drop-shadow(0 0 15px rgba(0, 212, 255, 0.3));
+    filter: none;
     animation: cardFloat 3s ease-in-out infinite;
 }
 
@@ -2289,3 +2289,13 @@ body.lite-mode *::after {
 .exclusive-upgrade-cost-value {
   color: #ffd700;
 }
+
+.card.rare .card-image { filter: drop-shadow(0 0 8px #3b82f6cc); }
+.card.epic .card-image { filter: drop-shadow(0 0 8px #8b5cf6cc); }
+.card.legendary .card-image { filter: drop-shadow(0 0 10px #f59e0bcc); }
+.card.mythic .card-image { filter: drop-shadow(0 0 12px #fff700cc); }
+.card.ultra .card-image { filter: drop-shadow(0 0 12px #00fff7cc); }
+.card.divine .card-image { filter: drop-shadow(0 0 14px #b993ffcc); }
+.card.exotic .card-image { filter: drop-shadow(0 0 16px #ff61a6cc); }
+.card.crystal .card-image { filter: drop-shadow(0 0 10px #3fa6ffcc); }
+.card.stellar .card-image { filter: drop-shadow(0 0 10px #ffd166cc); }
