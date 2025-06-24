@@ -31,6 +31,28 @@ export default function handler(req, res) {
 let players = [];
 let playerIdCounter = 1;
 
+// Экспортируем функции для работы с игроками
+export function getPlayers() {
+  return players;
+}
+
+export function setPlayers(playersList) {
+  players = playersList;
+}
+
+export function getPlayerById(id) {
+  return players.find(p => p.id === id);
+}
+
+export function updatePlayerById(id, updates) {
+  const player = players.find(p => p.id === id);
+  if (player) {
+    Object.assign(player, updates);
+    return player;
+  }
+  return null;
+}
+
 function handleGetPlayer(req, res) {
   const { playerId } = req.query;
 

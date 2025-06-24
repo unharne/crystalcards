@@ -1,4 +1,6 @@
 // API endpoint для торговли картами
+import { getPlayers, getPlayerById, updatePlayerById } from './players.js';
+
 export default function handler(req, res) {
   // Включаем CORS для работы с фронтендом
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -33,6 +35,21 @@ export default function handler(req, res) {
 // Хранилище торгов (в реальном проекте используйте базу данных)
 let trades = [];
 let tradeIdCounter = 1;
+
+// Функция для получения игроков (в реальном проекте это был бы запрос к БД)
+function getPlayersFromTrade() {
+  return getPlayers();
+}
+
+// Функция для обновления игрока (в реальном проекте это был бы запрос к БД)
+function updatePlayerFromTrade(playerId, updates) {
+  return updatePlayerById(playerId, updates);
+}
+
+// Функция для установки списка игроков (вызывается из players.js)
+export function setPlayers(playersList) {
+  // Эта функция больше не нужна, так как мы используем общее хранилище
+}
 
 function handleGetTrade(req, res) {
   const { playerId, tradeId } = req.query;
@@ -123,14 +140,85 @@ function handleAcceptTrade(req, res) {
     return res.status(400).json({ error: 'Trade has expired' });
   }
 
-  // Здесь в реальном приложении нужно было бы обновить балансы игроков
-  // и передать карты между коллекциями
-  // Для демонстрации просто помечаем сделку как завершенную
+  // Получаем игроков
+  const fromPlayer = getPlayerById(trade.fromPlayerId);
+  const toPlayer = getPlayerById(trade.toPlayerId);
 
-  trade.status = 'completed';
-  trade.completedAt = new Date().toISOString();
+  if (!fromPlayer || !toPlayer) {
+    return res.status(404).json({ error: 'Player not found' });
+  }
 
-  res.json(trade);
+  // Проверяем, что у игроков достаточно денег
+  if (trade.offeredMoney > 0 && fromPlayer.coins < trade.offeredMoney) {
+    return res.status(400).json({ error: 'Insufficient funds for trade' });
+  }
+
+  if (trade.requestedMoney > 0 && toPlayer.coins < trade.requestedMoney) {
+    return res.status(400).json({ error: 'Insufficient funds for trade' });
+  }
+
+  // Выполняем обмен картами и деньгами
+  try {
+    // Передаем карты
+    if (trade.offeredCards.length > 0) {
+      // Удаляем карты у отправителя
+      trade.offeredCards.forEach(cardId => {
+        const cardIndex = fromPlayer.collection.findIndex(c => c.id == cardId);
+        if (cardIndex !== -1) {
+          const card = fromPlayer.collection.splice(cardIndex, 1)[0];
+          toPlayer.collection.push(card);
+        }
+      });
+    }
+
+    if (trade.requestedCards.length > 0) {
+      // Удаляем карты у получателя
+      trade.requestedCards.forEach(cardId => {
+        const cardIndex = toPlayer.collection.findIndex(c => c.id == cardId);
+        if (cardIndex !== -1) {
+          const card = toPlayer.collection.splice(cardIndex, 1)[0];
+          fromPlayer.collection.push(card);
+        }
+      });
+    }
+
+    // Передаем деньги
+    if (trade.offeredMoney > 0) {
+      fromPlayer.coins -= trade.offeredMoney;
+      toPlayer.coins += trade.offeredMoney;
+    }
+
+    if (trade.requestedMoney > 0) {
+      toPlayer.coins -= trade.requestedMoney;
+      fromPlayer.coins += trade.requestedMoney;
+    }
+
+    // Обновляем время последней активности
+    fromPlayer.lastActive = new Date().toISOString();
+    toPlayer.lastActive = new Date().toISOString();
+
+    // Помечаем сделку как завершенную
+    trade.status = 'completed';
+    trade.completedAt = new Date().toISOString();
+
+    res.json({
+      trade,
+      message: 'Trade completed successfully',
+      fromPlayer: {
+        id: fromPlayer.id,
+        coins: fromPlayer.coins,
+        collectionCount: fromPlayer.collection.length
+      },
+      toPlayer: {
+        id: toPlayer.id,
+        coins: toPlayer.coins,
+        collectionCount: toPlayer.collection.length
+      }
+    });
+  } catch (error) {
+    console.error('Error completing trade:', error);
+    res.status(500).json({ error: 'Internal server error during trade completion' });
+  }
 }
 
 function handleCancelTrade(req, res) {
