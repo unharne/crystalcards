@@ -30,6 +30,7 @@
             <button class="nav-btn" data-section="collection">📚 Коллекция</button>
             <button class="nav-btn" data-section="unpack">📦 Анпакинг</button>
             <button class="nav-btn" data-section="nft">🖼️ NFT</button>
+            <button class="nav-btn" data-section="investments">💰 Инвестиции</button>
             <button id="lite-mode-toggle" class="nav-btn" aria-pressed="false" aria-label="Переключить режим отображения">⚡</button>
         </nav>
         <main class="main-content" id="main-content" role="main">
@@ -143,6 +144,32 @@
                     <p>Уникальные NFT-карты, которые ничего не дают, но выглядят круто и стоят от миллиарда монет!</p>
                 </div>
                 <div id="nft-grid" class="cards-grid"></div>
+            </section>
+            <section id="investments" class="section" aria-labelledby="investments-title">
+                <div class="section-header">
+                    <h2 id="investments-title">💰 Инвестиции</h2>
+                    <p>Инвестируйте свои монеты и получайте дополнительный пассивный доход! Чем выше риск, тем выше доходность.</p>
+                </div>
+                <div class="investments-stats">
+                    <div class="investment-stat">
+                        <span class="stat-label">Общая стоимость инвестиций:</span>
+                        <span id="investment-value" class="stat-value">0</span>
+                    </div>
+                    <div class="investment-stat">
+                        <span class="stat-label">Доход от инвестиций:</span>
+                        <span id="investment-income" class="stat-value">0/день</span>
+                    </div>
+                </div>
+                <div class="investments-container">
+                    <div class="available-investments">
+                        <h3>Доступные инвестиции</h3>
+                        <div id="available-investments-grid" class="investments-grid"></div>
+                    </div>
+                    <div class="active-investments">
+                        <h3>Активные инвестиции</h3>
+                        <div id="investments-container" class="active-investments-list"></div>
+                    </div>
+                </div>
             </section>
         </main>
         <footer class="footer-powered" role="contentinfo"><a href="https://github.com/unharne" target="_blank" rel="noopener noreferrer" class="footer-powered-link">powered by unharne</a></footer>

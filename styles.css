@@ -2323,3 +2323,267 @@ body.lite-mode *::after {
 .exclusive-3d-card, .card-front, .card-back, .exclusive-stats, .exclusive-stats-income, .exclusive-stats-level, .exclusive-upgrade-cost, .exclusive-upgrade-cost-value {
     font-family: 'Montserrat', 'Inter', Arial, sans-serif !important;
 }
+
+/* Стили для секции инвестиций */
+.investments-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-radius: 15px;
+    border: 1px solid #2a2a3e;
+}
+
+.investment-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: #8b8b9f;
+    font-weight: 500;
+}
+
+.stat-value {
+    font-size: 18px;
+    font-weight: 700;
+    color: #4caf50;
+}
+
+.investments-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.available-investments,
+.active-investments {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-radius: 15px;
+    padding: 25px;
+    border: 1px solid #2a2a3e;
+}
+
+.available-investments h3,
+.active-investments h3 {
+    margin: 0 0 20px 0;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.investments-grid {
+    display: grid;
+    gap: 20px;
+}
+
+.available-investment-card {
+    background: linear-gradient(135deg, #2a2a3e 0%, #1e1e2e 100%);
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid #3a3a4e;
+    transition: all 0.3s ease;
+}
+
+.available-investment-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    border-color: #4a4a5e;
+}
+
+.investment-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.investment-emoji {
+    font-size: 24px;
+}
+
+.investment-name {
+    margin: 0;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+    flex: 1;
+}
+
+.investment-risk {
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.risk-low {
+    background: rgba(76, 175, 80, 0.2);
+    color: #4caf50;
+    border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.risk-medium {
+    background: rgba(255, 193, 7, 0.2);
+    color: #ffc107;
+    border: 1px solid rgba(255, 193, 7, 0.3);
+}
+
+.risk-high {
+    background: rgba(255, 152, 0, 0.2);
+    color: #ff9800;
+    border: 1px solid rgba(255, 152, 0, 0.3);
+}
+
+.risk-very_high {
+    background: rgba(244, 67, 54, 0.2);
+    color: #f44336;
+    border: 1px solid rgba(244, 67, 54, 0.3);
+}
+
+.investment-description {
+    color: #8b8b9f;
+    font-size: 14px;
+    margin: 0 0 15px 0;
+    line-height: 1.5;
+}
+
+.investment-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.investment-range,
+.investment-return {
+    color: #b0b0c0;
+    font-size: 14px;
+}
+
+.investment-form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.investment-amount-input {
+    flex: 1;
+    background: #1a1a2e;
+    border: 1px solid #3a3a4e;
+    border-radius: 8px;
+    padding: 10px 12px;
+    color: #ffffff;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+.investment-amount-input:focus {
+    outline: none;
+    border-color: #4caf50;
+}
+
+.invest-btn {
+    padding: 10px 16px;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.active-investments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.investment-item {
+    background: linear-gradient(135deg, #2a2a3e 0%, #1e1e2e 100%);
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid #3a3a4e;
+    transition: all 0.3s ease;
+}
+
+.investment-item:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.investment-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.investment-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.investment-amount,
+.investment-earned,
+.investment-total,
+.investment-time {
+    color: #b0b0c0;
+    font-size: 14px;
+}
+
+.investment-earned {
+    color: #4caf50;
+    font-weight: 600;
+}
+
+.investment-total {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.withdraw-btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.no-investments {
+    text-align: center;
+    color: #8b8b9f;
+    font-style: italic;
+    padding: 40px 20px;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .investments-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .investment-form {
+        flex-direction: column;
+    }
+    
+    .investment-details {
+        grid-template-columns: 1fr;
+    }
+    
+    .investments-stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Убрать стрелочки у input[type=number] для .investment-amount-input */
+.investment-amount-input::-webkit-outer-spin-button,
+.investment-amount-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.investment-amount-input[type=number] {
+    -moz-appearance: textfield;
+}
