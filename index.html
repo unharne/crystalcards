@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#10141a">
+    <link rel="apple-touch-icon" sizes="180x180" href="diamond-blue.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="diamond-blue.png">
+    <title>CrystalCards</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <header class="header" role="banner">
+            <h1 class="game-title">💎 CrystalCards</h1>
+            <div class="stats" aria-label="Статистика">
+                <div class="stat">
+                    <span class="stat-icon" aria-hidden="true">💰</span>
+                    <span id="coins">1000</span>
+                </div>
+            </div>
+        </header>
+        <nav class="navigation" role="navigation" aria-label="Основная навигация">
+            <button class="nav-btn active" data-section="home" aria-current="page">🏠 Главная</button>
+            <button class="nav-btn" data-section="collection">📚 Коллекция</button>
+            <button class="nav-btn" data-section="unpack">📦 Анпакинг</button>
+            <button class="nav-btn" data-section="nft">🖼️ NFT</button>
+            <button id="lite-mode-toggle" class="nav-btn" aria-pressed="false" aria-label="Переключить режим отображения">⚡</button>
+        </nav>
+        <main class="main-content" id="main-content" role="main">
+            <section id="home" class="section active" aria-labelledby="home-title">
+                <div class="welcome-card" role="region" aria-label="Приветствие">
+                    <h2 id="home-title">Добро пожаловать в CrystalCards!</h2>
+                    <p>Погрузись в коллекционирование бизнес-карт, открывай экзотические компании и стань легендой среди коллекционеров!</p>
+                    <ul class="quick-stats" style="list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;margin-top:32px;padding:0;">
+                        <li class="quick-stat">
+                            <h3>Карточек в коллекции</h3>
+                            <span id="collection-count">0</span>
+                        </li>
+                        <li class="quick-stat">
+                            <h3>Доход коллекции</h3>
+                            <span id="total-mps">0</span>
+                        </li>
+                    </ul>
+                    <div id="rebirth-info" class="rebirth-info-block">♻️ Ребитхов: 0 (+0% дохода)</div>
+                    <button id="rebirth-btn" class="btn btn-primary rebirth-btn" aria-label="Совершить ребитх">♻️ Ребитх (10 млрд+)</button>
+                </div>
+                <div class="clicker-section">
+                    <button id="clicker-main-btn" class="btn btn-primary btn-large clicker-btn" aria-label="Кликер">💎</button>
+                    <p class="clicker-info">
+                        <span id="clicker-count">Кликов: 0</span><br>
+                        <span id="clicker-earned">Заработано монет: 0</span>
+                    </p>
+                    <p class="clicker-tip">Каждый клик приносит 5 монет!</p>
+                </div>
+                <div class="tools-toggle-container">
+                    <button id="tools-toggle-btn" class="btn btn-secondary" aria-expanded="false" aria-controls="main-tools-menu">⚙️ Инструменты</button>
+                </div>
+                <div id="main-tools-menu" class="main-tools-menu" role="region" aria-label="Инструменты">
+                    <div class="main-tools-menu-header">
+                        <h3 class="main-tools-menu-title">Инструменты</h3>
+                        <button id="reset-all-btn" class="btn btn-danger">Сброс</button>
+                    </div>
+                    <form class="promo-form" role="form" aria-label="Промокод">
+                        <span class="promo-form-icon">🎁</span>
+                        <input type="text" id="promo-input" placeholder="Промокод..." maxlength="32" class="promo-input" aria-label="Введите промокод">
+                        <button id="promo-apply-btn" class="btn btn-primary" type="button" aria-label="Применить промокод">OK</button>
+                    </form>
+                    <div id="promo-message" class="promo-message"></div>
+                </div>
+            </section>
+            <section id="collection" class="section" aria-labelledby="collection-title">
+                <div class="section-header">
+                    <h2 id="collection-title">📚 Моя коллекция</h2>
+                    <p>Просматривайте и управляйте своими карточками</p>
+                </div>
+                <div class="filters">
+                    <select id="rarity-filter" aria-label="Фильтр по редкости">
+                        <option value="">Все редкости</option>
+                        <option value="common">⚪ Обычные</option>
+                        <option value="rare">🟦 Редкие</option>
+                        <option value="epic">🟪 Эпические</option>
+                        <option value="legendary">🟧 Легендарные</option>
+                        <option value="mythic">🟨 Мифические</option>
+                        <option value="ultra">💎 Ультра-редкие</option>
+                        <option value="divine">🌌 Божественные</option>
+                        <option value="exotic">🌠 Экзотические</option>
+                        <option value="exclusive">👑 Эксклюзивные</option>
+                    </select>
+                </div>
+                <div id="mass-action-panel" class="mass-action-panel">
+                    <button id="mass-sell-all" class="mass-action-btn" title="Продать все">🗑️</button>
+                    <button id="sell-selected-btn" class="mass-action-btn" disabled title="Продать выбранные">💸</button>
+                    <button id="mass-select-all" class="mass-action-btn" title="Выбрать все">✅</button>
+                    <button id="mass-deselect-all" class="mass-action-btn" title="Снять выделение">❌</button>
+                    <button id="upgrade-selected-btn" class="mass-action-btn" disabled title="Прокачать выделенные">⬆️</button>
+                    <span id="mass-selected-info">Выбрано: 0 карт, 0 монет</span>
+                </div>
+                <div id="collection-grid" class="cards-grid"></div>
+            </section>
+            <section id="unpack" class="section" aria-labelledby="unpack-title">
+                <div class="section-header">
+                    <h2 id="unpack-title">📦 Анпакинг</h2>
+                    <p>Открой для себя мир кристальных бизнес-карт! Собирай, улучшай и коллекционируй самые редкие и экзотические компании. Стань настоящей легендой среди коллекционеров!</p>
+                </div>
+                <div class="packs-container">
+                    <div class="pack-card basic" data-pack="basic"><div class="pack-image">📦</div><h3>Базовый пак</h3><p>5 карточек</p><p class="price">💰 100</p><button class="btn btn-primary buy-pack">Купить</button></div>
+                    <div class="pack-card premium" data-pack="premium"><div class="pack-image">🎁</div><h3>Премиум пак</h3><p>10 карточек + гарантированная редкая</p><p class="price">💰 1000</p><button class="btn btn-primary buy-pack">Купить</button></div>
+                    <div class="pack-card legendary" data-pack="legendary"><div class="pack-image">💎</div><h3>Легендарный пак</h3><p>15 карточек + гарантированная эпическая</p><p class="price">💰 2500</p><button class="btn btn-primary buy-pack">Купить</button></div>
+                    <div class="pack-card legendaryplus" data-pack="legendaryplus"><div class="pack-image">🏅</div><h3>Чемпионский пак</h3><p>15 карточек + гарантированная легендарная</p><p class="price">💰 6000</p><button class="btn btn-primary buy-pack">Купить</button></div>
+                    <div class="pack-card mythic" data-pack="mythic"><div class="pack-image">🌟</div><h3>Мифик пак</h3><p>15 карточек + гарантированная мифическая</p><p class="price">💰 12000</p><button class="btn btn-primary buy-pack">Купить</button></div>
+                    <div class="pack-card ultra" data-pack="ultra"><div class="pack-image">🔮</div><h3>Ультра пак</h3><p>15 карточек + гарантированная ультра-редкая</p><p class="price">💰 15000</p><button class="btn btn-primary buy-pack">Купить</button></div>
+                    <div class="pack-card stellar" data-pack="stellar"><div class="pack-image">✨</div><h3>Звёздный пак</h3><p>15 карточек + гарантированная божественная</p><p class="price">💰 35000</p><button class="btn btn-primary buy-pack">Купить</button></div>
+                    <div class="pack-card exotic" data-pack="exotic"><div class="pack-image">🌠</div><h3>Экзотический пак</h3><p>1 карта — 100% экзотическая</p><p class="price">💰 100000</p><button class="btn btn-primary buy-pack">Купить</button></div>
+                    <div class="pack-card crystal" data-pack="crystal"><div class="pack-image">🔷</div><h3>Кристальный пак</h3><p>29 карточек + гарантированная ультра-редкая</p><p class="price">💰 250000</p><button class="btn btn-primary buy-pack">Купить</button></div>
+                    <div class="pack-card divine" data-pack="divine"><div class="pack-image">👼</div><h3>Божественный пак</h3><p>29 карточек + гарантированная божественная</p><p class="price">💰 500000</p><button class="btn btn-primary buy-pack">Купить</button></div>
+                    <div class="pack-card galaxy" data-pack="galaxy"><div class="pack-image">🌌</div><h3>Галактический пак</h3><p>29 карточек + гарантированная экзотическая</p><p class="price">💰 1000000</p><button class="btn btn-primary buy-pack">Купить</button></div>
+                    <div class="pack-card exclusive" data-pack="exclusive"><div class="pack-image">🎓</div><h3>Эксклюзивный пак</h3><p>1 карта — шанс 10% на эксклюзивную</p><p class="price">💰 10 000 000 000</p><button class="btn btn-primary buy-pack">Купить</button></div>
+                    <div class="pack-card duplicate" data-pack="duplicate"><div class="pack-image">♻️</div><h3>Дубликат-пак</h3><p>1 карта — всегда дубликат из вашей коллекции</p><p class="price">💰 100 000 000 000</p><button class="btn btn-primary buy-pack">Купить</button></div>
+                </div>
+                <div id="unpacking-area" class="unpacking-area hidden">
+                    <div class="pack-opening">
+                        <div class="pack-animation">
+                            <div class="pack">📦</div>
+                        </div>
+                        <button id="open-pack" class="btn btn-large">Открыть пак!</button>
+                    </div>
+                </div>
+                <div id="cards-reveal" class="cards-reveal hidden">
+                    <h3>Полученные карточки:</h3>
+                    <div id="revealed-cards" class="revealed-cards"></div>
+                    <button id="close-reveal" class="btn btn-primary">Закрыть</button>
+                </div>
+            </section>
+            <section id="nft" class="section" aria-labelledby="nft-title">
+                <div class="section-header">
+                    <h2 id="nft-title">🖼️ NFT-карты</h2>
+                    <p>Уникальные NFT-карты, которые ничего не дают, но выглядят круто и стоят от миллиарда монет!</p>
+                </div>
+                <div id="nft-grid" class="cards-grid"></div>
+            </section>
+        </main>
+        <footer class="footer-powered" role="contentinfo"><a href="https://github.com/unharne" target="_blank" rel="noopener noreferrer" class="footer-powered-link">powered by unharne</a></footer>
+    </div>
+    <div id="card-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-card-content">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modal-card-content"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <!-- Шаблон эксклюзивной 3D-карты для коллекции и reveal -->
+    <template id="exclusive-3d-card-template">
+      <div class="exclusive-3d-card">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="exclusive-3d-card-front-icon">🎓</div>
+            <div class="exclusive-3d-card-front-title">ЛАСК</div>
+          </div>
+          <div class="card-back">
+            <div class="exclusive-stats">
+              💰 Доход: <span class="exclusive-stats-income">1М/сек</span><br>
+              🏆 Уровень: <span class="exclusive-stats-level">1</span><br>
+              <span class="exclusive-upgrade-cost">📈 <span class="exclusive-upgrade-cost-value">85 000</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </template>
+    <!-- Шаблон обычной карточки для коллекции и reveal -->
+    <template id="card-template">
+      <div class="card">
+        <div class="card-checkbox-container">
+          <input type="checkbox" class="card-checkbox">
+        </div>
+        <div class="card-image"></div>
+        <div class="card-name"></div>
+        <div class="card-stats"></div>
+        <div class="card-buttons"></div>
+        <div class="card-count"></div>
+      </div>
+    </template>
+    <!-- Шаблон NFT-карточки для секции NFT -->
+    <template id="nft-card-template">
+      <div class="card nft-card">
+        <div class="card-image"></div>
+        <div class="card-name"></div>
+        <div class="card-nft-price"></div>
+        <button class="btn btn-primary buy-nft-btn"></button>
+      </div>
+    </template>
+</body>
+</html> 
