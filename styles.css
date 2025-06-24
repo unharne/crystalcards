@@ -2599,6 +2599,22 @@ body.lite-mode *::after {
     font-size: 14px;
 }
 
+.trade-input {
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: var(--input-bg);
+    color: var(--text-primary);
+    font-size: 14px;
+    width: 100%;
+}
+
+.trade-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px var(--primary-color-alpha);
+}
+
 .trade-cards-selection {
     min-height: 60px;
     border: 2px dashed var(--border-color);
@@ -2826,4 +2842,28 @@ body.lite-mode *::after {
     .trade-card-selector {
         grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     }
+}
+
+.trade-card-tag:hover {
+    background: var(--primary-color-dark);
+    transform: translateY(-1px);
+    transition: all 0.2s ease;
+}
+
+.trade-money-tag {
+    background: var(--success-color, #10b981);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    display: inline-block;
+    margin: 2px;
+    white-space: nowrap;
+}
+
+.trade-money-tag:hover {
+    background: var(--success-color-dark, #059669);
+    transform: translateY(-1px);
+    transition: all 0.2s ease;
 }

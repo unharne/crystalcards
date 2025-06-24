@@ -60,9 +60,9 @@ function handleGetTrade(req, res) {
 }
 
 function handleCreateTrade(req, res) {
-  const { fromPlayerId, toPlayerId, offeredCards, requestedCards, message } = req.body;
+  const { fromPlayerId, toPlayerId, offeredCards, requestedCards, offeredMoney, requestedMoney, message } = req.body;
 
-  if (!fromPlayerId || !toPlayerId || !offeredCards || !requestedCards) {
+  if (!fromPlayerId || !toPlayerId) {
     return res.status(400).json({ error: 'Missing required fields' });
   }
 
@@ -70,12 +70,23 @@ function handleCreateTrade(req, res) {
     return res.status(400).json({ error: 'Cannot trade with yourself' });
   }
 
+  // Проверяем, что есть хотя бы карты или деньги для обмена
+  if ((!offeredCards || offeredCards.length === 0) && (!offeredMoney || offeredMoney <= 0)) {
+    return res.status(400).json({ error: 'Must offer at least cards or money' });
+  }
+
+  if ((!requestedCards || requestedCards.length === 0) && (!requestedMoney || requestedMoney <= 0)) {
+    return res.status(400).json({ error: 'Must request at least cards or money' });
+  }
+
   const trade = {
     id: tradeIdCounter++,
     fromPlayerId,
     toPlayerId,
-    offeredCards,
-    requestedCards,
+    offeredCards: offeredCards || [],
+    requestedCards: requestedCards || [],
+    offeredMoney: offeredMoney || 0,
+    requestedMoney: requestedMoney || 0,
     message: message || '',
     status: 'active',
     createdAt: new Date().toISOString(),
@@ -111,6 +122,10 @@ function handleAcceptTrade(req, res) {
     trade.status = 'expired';
     return res.status(400).json({ error: 'Trade has expired' });
   }
+
+  // Здесь в реальном приложении нужно было бы обновить балансы игроков
+  // и передать карты между коллекциями
+  // Для демонстрации просто помечаем сделку как завершенную
 
   trade.status = 'completed';
   trade.completedAt = new Date().toISOString();

@@ -161,6 +161,10 @@
                                     <span>Карт в коллекции:</span>
                                     <span id="player-cards-count">0</span>
                                 </div>
+                                <div class="player-stat">
+                                    <span>Баланс:</span>
+                                    <span id="player-balance">0</span>
+                                </div>
                             </div>
                             <button id="create-player-btn" class="btn btn-primary">Создать профиль</button>
                         </div>
@@ -211,6 +215,14 @@
                                     </div>
                                     
                                     <div class="trade-form-group">
+                                        <label for="offered-money">Предлагаемые деньги:</label>
+                                        <input type="number" id="offered-money" placeholder="0" min="0" class="trade-input">
+                                        <p style="font-size: 12px; color: var(--text-secondary); margin-top: 4px;">
+                                            Укажите сумму денег, которую хотите предложить
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="trade-form-group">
                                         <label>Запрашиваемые карты:</label>
                                         <div class="trade-cards-selection-header">
                                             <button type="button" id="select-requested-cards" class="btn btn-secondary btn-small">Выбрать карты</button>
@@ -218,6 +230,14 @@
                                         <div id="requested-cards" class="trade-cards-selection">
                                             <p class="trade-hint">Выберите карты, которые хотите получить</p>
                                         </div>
+                                    </div>
+                                    
+                                    <div class="trade-form-group">
+                                        <label for="requested-money">Запрашиваемые деньги:</label>
+                                        <input type="number" id="requested-money" placeholder="0" min="0" class="trade-input">
+                                        <p style="font-size: 12px; color: var(--text-secondary); margin-top: 4px;">
+                                            Укажите сумму денег, которую хотите получить
+                                        </p>
                                     </div>
                                     
                                     <div class="trade-form-group">
