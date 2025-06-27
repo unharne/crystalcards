@@ -2245,6 +2245,7 @@ body.lite-mode *::after {
 .pack-card.galaxy .pack-image { filter: drop-shadow(0 0 32px #00ffd0) drop-shadow(0 0 8px #00ffd0); }
 .pack-card.exclusive .pack-image { filter: drop-shadow(0 0 32px #ffd700) drop-shadow(0 0 8px #ffd700); }
 .pack-card.duplicate .pack-image { filter: drop-shadow(0 0 32px #00ffd0) drop-shadow(0 0 8px #00ffd0); }
+.pack-card.cheap30 .pack-image { filter: drop-shadow(0 0 32px #ffb700) drop-shadow(0 0 8px #ffb700); }
 
 /* Keep default for fallback */
 .nft-card::before {
