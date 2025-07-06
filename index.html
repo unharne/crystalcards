@@ -47,8 +47,7 @@
                             <span id="total-mps">0</span>
                         </li>
                     </ul>
-                    <div id="rebirth-info" class="rebirth-info-block">♻️ Ребитхов: 0 (+0% дохода)</div>
-                    <button id="rebirth-btn" class="btn btn-primary rebirth-btn" aria-label="Совершить ребитх">♻️ Ребитх (10 млрд+)</button>
+
                 </div>
                 <div class="clicker-section">
                     <button id="clicker-main-btn" class="btn btn-primary btn-large clicker-btn" aria-label="Кликер">💎</button>
@@ -90,7 +89,7 @@
                         <option value="ultra">💎 Ультра-редкие</option>
                         <option value="divine">🌌 Божественные</option>
                         <option value="exotic">🌠 Экзотические</option>
-                        <option value="exclusive">👑 Эксклюзивные</option>
+
                     </select>
                 </div>
                 <div id="mass-action-panel" class="mass-action-panel">
@@ -115,7 +114,7 @@
                     <div class="pack-card divine" data-pack="divine"><div class="pack-image">👼</div><h3>Божественный пак</h3><p>1 божественная карта</p><p class="price">💰 250 000</p><button class="btn btn-primary buy-pack">Купить</button></div>
                     <div class="pack-card exotic" data-pack="exotic"><div class="pack-image">🌠</div><h3>Экзотический пак</h3><p>1 экзотическая карта</p><p class="price">💰 500 000</p><button class="btn btn-primary buy-pack">Купить</button></div>
                     <div class="pack-card galaxy" data-pack="galaxy"><div class="pack-image">🌌</div><h3>Галактический пак</h3><p>30 экзотических карт</p><p class="price">💰 15 000 000</p><button class="btn btn-primary buy-pack">Купить</button></div>
-                    <div class="pack-card exclusive" data-pack="exclusive"><div class="pack-image">🎓</div><h3>Эксклюзивный пак</h3><p>10% на эксклюзивную карту</p><p class="price">💰 10 000 000 000</p><button class="btn btn-primary buy-pack">Купить</button></div>
+
                     <div class="pack-card duplicate" data-pack="duplicate"><div class="pack-image">♻️</div><h3>Дубликат-пак</h3><p>1 карта — всегда дубликат из вашей коллекции</p><p class="price">💰 100 000 000 000</p><button class="btn btn-primary buy-pack">Купить</button></div>
                 </div>
                 <div id="unpacking-area" class="unpacking-area hidden">
@@ -149,24 +148,7 @@
         </div>
     </div>
     <script src="script.js"></script>
-    <!-- Шаблон эксклюзивной 3D-карты для коллекции и reveal -->
-    <template id="exclusive-3d-card-template">
-      <div class="exclusive-3d-card">
-        <div class="card-inner">
-          <div class="card-front">
-            <div class="exclusive-3d-card-front-icon">🎓</div>
-            <div class="exclusive-3d-card-front-title">ЛАСК</div>
-          </div>
-          <div class="card-back">
-            <div class="exclusive-stats">
-              💰 Доход: <span class="exclusive-stats-income">1М/сек</span><br>
-              🏆 Уровень: <span class="exclusive-stats-level">1</span><br>
-              <span class="exclusive-upgrade-cost">📈 <span class="exclusive-upgrade-cost-value">85 000</span></span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </template>
+
     <!-- Шаблон обычной карточки для коллекции и reveal -->
     <template id="card-template">
       <div class="card">
